@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dragon Circle | 會員權益使用指南</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+TC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--
+    
+    　　 ∧＿∧　　　／￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+    　　（　・∀・）　＜　    Why are you sneaking 
+    　　（　　　　） 　　＼  a look at the source code?
+    　 　｜ ｜　|　　　　　＼＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　
+    　　（_＿）＿)
+
+    The Dragon Circle - Member Benefits Guide
+    Version: 2026 Q1-Q2
+    
+    -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="disclaimer-overlay" id="disclaimerOverlay">
+        <div class="disclaimer-box">
+            <div class="disclaimer-icon">⚠️</div>
+            <h2 class="disclaimer-title">使用前請閱讀</h2>
+            <div class="disclaimer-content">
+                <p>本網站為<strong>哩民自行整理之非官方工具</strong>，僅供參考使用。</p>
+                <p style="margin-top: 12px;">所有會員權益、規範及資訊，請以<strong>官方會員手冊</strong>為準。</p>
+            </div>
+            <a href="https://www.ftctw.org/vipkit2024go" target="_blank" rel="noopener noreferrer" class="disclaimer-download">
+                <span>📖</span>
+                <span>下載官方會員手冊</span>
+            </a>
+            <br>
+            <button class="disclaimer-btn" onclick="closeDisclaimer()">我已了解，繼續瀏覽</button>
+            <p class="disclaimer-note">點擊上方按鈕表示您已閱讀並理解此聲明</p>
+        </div>
+    </div>
+
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">THE DRAGON CIRCLE</div>
+            <div class="loader-sub">MEMBER BENEFITS GUIDE</div>
+            <div class="loader-line"></div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ambient-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <main class="main-content" id="mainContent">
+        <header id="header">
+            <div class="logo">
+                <span class="logo-main">THE DRAGON CIRCLE</span>
+                <span class="logo-sub">EXCLUSIVE MEMBERSHIP</span>
+            </div>
+            <nav>
+                <a href="#tiers">會員等級</a>
+                <a href="#comparison">權益比較</a>
+                <a href="#hotels">直營飯店</a>
+                <a href="#benefits">使用指南</a>
+                <a href="#faq">常見問題</a>
+                <a href="https://apg8.pro/VIP_line" class="nav-cta" target="_blank" rel="noopener noreferrer">聯繫管家</a>
+            </nav>
+            <button type="button" class="menu-toggle" id="menuToggle" onclick="toggleMobileNav()" aria-expanded="false" aria-controls="mobileNav" aria-label="開啟導覽選單">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </header>
+
+        <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="網站導覽">
+            <a href="#tiers" onclick="closeMobileNav()">會員等級</a>
+            <a href="#comparison" onclick="closeMobileNav()">權益比較</a>
+            <a href="#hotels" onclick="closeMobileNav()">直營飯店</a>
+            <a href="#benefits" onclick="closeMobileNav()">使用指南</a>
+            <a href="#faq" onclick="closeMobileNav()">常見問題</a>
+            <a href="https://apg8.pro/VIP_line" class="nav-cta" target="_blank" rel="noopener noreferrer">聯繫管家</a>
+        </div>
+
+        <section class="hero">
+            <span class="hero-badge">2026 Q1-Q2 最新版</span>
+            <h1 class="hero-title">會員權益使用指南</h1>
+            <p class="hero-subtitle">尊榮禮遇，為品味卓越的你而設</p>
+            <p class="hero-desc">
+                Discover Your Exclusive Journey · Unlock Unparalleled Global Experiences
+            </p>
+            <div class="hero-scroll" onclick="document.getElementById('tiers').scrollIntoView({behavior: 'smooth'})">
+                <span>EXPLORE</span>
+                <div class="scroll-line"></div>
+                    </div>
+        </section>
+
+        <section class="tier-nav-section" id="tiers">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p class="section-eyebrow">Membership Tiers</p>
+                    <h2 class="section-title">選擇你的專屬會籍</h2>
+                    <p class="section-desc">五種生活風格，滿足不同層次的旅遊品味需求</p>
+                        </div>
+
+                <div class="tier-nav-grid">
+                    <div class="tier-nav-card platinum fade-in fade-in-delay-1" onclick="scrollToSection('comparison')">
+                        <div class="tier-nav-icon">🥈</div>
+                        <div class="tier-nav-name">PLATINUM</div>
+                        <div class="tier-nav-cn">白金會員</div>
+                        <div class="tier-nav-price">NT$ 8,888 / 年</div>
+                        </div>
+                    <div class="tier-nav-card executive fade-in fade-in-delay-2" onclick="scrollToSection('comparison')">
+                        <div class="tier-nav-icon">🥇</div>
+                        <div class="tier-nav-name">EXECUTIVE</div>
+                        <div class="tier-nav-cn">行政白金</div>
+                        <div class="tier-nav-price">NT$ 13,888 / 年</div>
+                        </div>
+                    <div class="tier-nav-card executive-plus fade-in fade-in-delay-3" onclick="scrollToSection('comparison')">
+                        <div class="tier-nav-icon">🏅</div>
+                        <div class="tier-nav-name">EXECUTIVE+</div>
+                        <div class="tier-nav-cn">行政白金 PLUS</div>
+                        <div class="tier-nav-price">NT$ 19,888 / 年</div>
+                    </div>
+                    <div class="tier-nav-card diamond fade-in fade-in-delay-4" onclick="scrollToSection('comparison')">
+                        <div class="tier-nav-icon">💎</div>
+                        <div class="tier-nav-name">DIAMOND</div>
+                        <div class="tier-nav-cn">鑽石貴賓</div>
+                        <div class="tier-nav-price">NT$ 88,888 / 年</div>
+                    </div>
+                    <div class="tier-nav-card diamond-plus fade-in fade-in-delay-5" onclick="scrollToSection('comparison')">
+                        <div class="tier-nav-icon">👑</div>
+                        <div class="tier-nav-name">DIAMOND+</div>
+                        <div class="tier-nav-cn">尊貴鑽石</div>
+                        <div class="tier-nav-price">僅限邀請制</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison-section" id="comparison">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p class="section-eyebrow">Benefits Comparison</p>
+                    <h2 class="section-title">權益比較一覽</h2>
+                    <p class="section-desc">快速了解各等級核心權益差異</p>
+                    </div>
+
+                <div class="choice-notice fade-in">
+                    <span class="notice-star">★</span>
+                    <span class="notice-text"><strong>四選一權益：</strong>年度免費套房、國內機場接送、寰宇尊榮通關、海外機場接送為鑽石會員「擇一」享有，一旦選定不可更換</span>
+                </div>
+
+                <div class="pin-toggle-container fade-in">
+                    <span class="pin-toggle-label">📌 釘選權益項目欄位</span>
+                    <div class="pin-toggle" id="pinToggle" onclick="toggleTablePin()"></div>
+            </div>
+
+                <div class="comparison-wrapper fade-in" id="comparisonWrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>權益項目</th>
+                                <th>
+                                    <div class="tier-col-header platinum">
+                                        <span class="name">白金</span>
+                                        <span class="price">$8,888</span>
+            </div>
+                                </th>
+                                <th>
+                                    <div class="tier-col-header executive">
+                                        <span class="name">行政白金</span>
+                                        <span class="price">$13,888</span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="tier-col-header executive">
+                                        <span class="name">行政白金+</span>
+                                        <span class="price">$19,888</span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="tier-col-header diamond">
+                                        <span class="name">鑽石</span>
+                                        <span class="price">$88,888</span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="tier-col-header diamond-plus">
+                                        <span class="name">尊貴鑽石</span>
+                                        <span class="price">邀請制</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="section-row">
+                                <td>🏨 飯店住宿權益</td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr>
+                                <td>國內直營飯店優惠</td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>南港六福萬怡額外贈點</td>
+                                <td class="value-text">至多 48,888</td>
+                                <td class="value-text">至多 48,888</td>
+                                <td class="value-text">至多 48,888</td>
+                                <td class="value-text highlight-gold">至多 68,888</td>
+                                <td class="value-text highlight-gold">至多 88,888</td>
+                            </tr>
+                            <tr>
+                                <td>台北寒舍喜來登住一送一</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>宜蘭力麗威斯汀別墅</td>
+                                <td class="value-text">$24,888+</td>
+                                <td class="value-text">$24,888+</td>
+                                <td class="value-text">$24,888+</td>
+                                <td class="value-text highlight-gold">$14,888+</td>
+                                <td class="value-text highlight-gold">$14,888+</td>
+                            </tr>
+                            <tr>
+                                <td>全球酒店尊享禮遇</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>豪華酒店定額消費金 <span class="info-tooltip" data-tip="金額為參考值，實際依各酒店方案而定">?</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">$100 USD</td>
+                                <td class="value-text">$100 USD</td>
+                                <td class="value-text highlight-gold">$300 USD</td>
+                                <td class="value-text highlight-gold">$600 USD</td>
+                            </tr>
+                            <tr>
+                                <td>指定酒店保證升等</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td class="value-text">至總統套房</td>
+                            </tr>
+                            <tr>
+                                <td>星野集團折扣</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text highlight-gold">至低 32 折</td>
+                                <td class="value-text highlight-gold">至低 32 折</td>
+                            </tr>
+                            <tr>
+                                <td>海外指定飯店免費住宿</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">至多 1 次</td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                            </tr>
+
+                            <tr class="section-row">
+                                <td>✈️ 交通 / 通關權益</td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr>
+                                <td>年度免費套房 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">至多 1 次</td>
+                                <td class="value-text">3-4 晚</td>
+                                <td class="value-text">指定總套 8 晚</td>
+                            </tr>
+                            <tr>
+                                <td>國內機場接送 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">至多 24 次/不限次 <span class="info-tooltip" data-tip="不限次為6年以上鑽石適用">?</span></td>
+                                <td class="value-text highlight-gold">不限次</td>
+                            </tr>
+                            <tr>
+                                <td>寰宇尊榮通關 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">至多 1 人次</td>
+                                <td class="value-text">至多 8 人次</td>
+                                <td class="value-text highlight-gold">不限次</td>
+                            </tr>
+                            <tr>
+                                <td>海外機場接送 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">至多 8 次</td>
+                                <td class="value-text highlight-gold">不限次</td>
+                            </tr>
+
+                            <tr class="section-row">
+                                <td>👑 尊貴禮遇</td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr>
+                                <td>環球禮賓中心服務</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">24小時</td>
+                                <td class="value-text highlight-gold">私人管家</td>
+                            </tr>
+                            <tr>
+                                <td>年度會員提名權利</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>續會親友附卡提名</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">如適用 <span class="info-tooltip" data-tip="依會員實際狀況而定，詳情請洽詢禮賓管家">?</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>貴賓會員年度餐會</td>
+                                <td class="value-text">如適用</td>
+                                <td class="value-text">50% off</td>
+                                <td class="value-text">50% off</td>
+                                <td class="value-text">Free</td>
+                                <td class="value-text">Free+攜伴3位</td>
+                            </tr>
+                            <tr>
+                                <td>每次尊貴酒店下榻禮遇 <span class="info-tooltip" data-tip="金額為平均參考值，並非所有酒店皆適用">?</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">500 USD</td>
+                                <td class="value-text">880 USD</td>
+                                <td class="value-text highlight-gold">1,680 USD</td>
+                            </tr>
+                            <tr>
+                                <td>全球緊急醫療救護</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                                <td><span class="check-icon">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>黑龍巡價 <span class="info-tooltip" data-tip="365天動態監控房價，價格下跌50-8500美元自動通知變更">?</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">不限次</td>
+                                <td class="value-text highlight-gold">不限次</td>
+                            </tr>
+                            <tr>
+                                <td>專屬行李吊牌</td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td><span class="cross-icon">—</span></td>
+                                <td class="value-text">鍍金 ×1</td>
+                                <td class="value-text">鍍金 ×3 <span class="info-tooltip" data-tip="4年以上：23K金×1 + 鍍金×2">?</span></td>
+                                <td class="value-text highlight-gold">無限黃金吊牌<br>+ 黃金會員卡</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+        </section>
+
+        <section class="promo-plans-section" id="promo-plans">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p class="section-eyebrow">Special Plans</p>
+                    <h2 class="section-title">加碼住房方案</h2>
+                    <p class="section-desc">限時加碼積分與專屬禮遇方案</p>
+                </div>
+
+                <div class="promo-cards-grid fade-in">
+                    <div class="promo-card">
+                        <div class="promo-badge">專屬方案</div>
+                        <h4 class="promo-hotel-name">高雄然一翡世之選酒店 (THE AMNIS)</h4>
+                        <p class="promo-subtitle">Milehome 專屬奢華住房專案 · 尊榮點數與極致禮遇</p>
+                        <div class="promo-period">
+                            <span>📅 訂房期間：2026/02/13 - 02/28</span>
+                            <span>🛏️ 入住期間：2026/02/13 - 05/31</span>
+                        </div>
+                        <div class="promo-plan-item highlight" style="margin-bottom: 20px;">
+                            <div class="plan-name">Junior Suite King Harbor View Room</div>
+                            <div class="plan-points">港景套房／城景套房</div>
+                            <div class="plan-price">NT$23,888（平假日同價）</div>
+                        </div>
+                        <div class="promo-tiers">
+                            <div class="promo-tier-row">
+                                <div class="tier-label">贈送積分</div>
+                            </div>
+                            <div class="promo-tier-item highlight">
+                                <span class="tier-name">鑽石會員</span>
+                                <span class="tier-value">88,888 點</span>
+                            </div>
+                            <div class="promo-tier-item">
+                                <span class="tier-name">非鑽石會員</span>
+                                <span class="tier-value">68,888 點</span>
+                            </div>
+                        </div>
+                        <div class="calc-benefits-list" style="margin-top: 20px;">
+                            <h4>尊榮專屬禮遇</h4>
+                            <ul>
+                                <li>贈送雙人早餐</li>
+                                <li>高鐵/小港機場 ↔ 然一酒店來回禮車接駁乙次</li>
+                                <li>Happy Hour 禮遇（不限等級）</li>
+                                <li>免費停車權益</li>
+                                <li>可累積萬豪旅享家點數房晚</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="promo-card">
+                        <div class="promo-badge">加碼贈點</div>
+                        <h4 class="promo-hotel-name">南港六福萬怡酒店</h4>
+                        <p class="promo-subtitle">環哩匯會員專屬套房積分加碼</p>
+                        <div class="promo-period">
+                            <span>🛏️ 入住期間：2026/02/14 - 05/10 (05/10 前退房)</span>
+                            <span>📅 每晚加贈活動：2026/02/02 - 05/10</span>
+                        </div>
+                        <div class="promo-tiers">
+                            <div class="promo-tier-row">
+                                <div class="tier-label">精緻套房 NT$23,888 贈點</div>
+                            </div>
+                            <div class="promo-tier-item highlight">
+                                <span class="tier-name">鑽石會員</span>
+                                <span class="tier-value">80,888 點</span>
+                                <span class="tier-original">原 68,888 點</span>
+                            </div>
+                            <div class="promo-tier-item">
+                                <span class="tier-name">非鑽石會員</span>
+                                <span class="tier-value">60,888 點</span>
+                                <span class="tier-original">原 48,888 點</span>
+                            </div>
+                        </div>
+                        <div class="promo-note" style="margin-top: 15px; padding: 12px; background: rgba(74, 222, 128, 0.05); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 8px; color: #4ade80;">
+                            ✨ 每晚額外加贈 888 點（2/2 - 5/10）<br>
+                            <small style="font-size: 0.75rem; opacity: 0.8; color: var(--text-dim);">※ 僅限 NT$3,599 方案（非上述套房方案）</small>
+                        </div>
+                    </div>
+
+                    <div class="promo-card">
+                        <div class="promo-badge">Q1 活動</div>
+                        <h4 class="promo-hotel-name">萬豪旅享家</h4>
+                        <p class="promo-subtitle">每次下榻加贈積分</p>
+                        <div class="promo-period">
+                            <span>📅 活動期間：2026/02/25 - 05/10</span>
+                        </div>
+                        <div class="promo-bonus-large">
+                            ✨ 每次下榻加贈 <strong>2,500 點</strong>
+                        </div>
+                        <div class="promo-note">
+                            適用於所有萬豪旅享家會員，可與其他優惠疊加使用
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hotels-section" id="hotels">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p class="section-eyebrow">Partner Hotels</p>
+                    <h2 class="section-title">國內直營飯店</h2>
+                    <p class="section-desc">七大直營飯店專屬優惠方案與訂房指南</p>
+                </div>
+
+                <div class="hotels-grid">
+                    <div class="hotel-card fade-in">
+                        <h3 class="hotel-name">南港六福萬怡</h3>
+                        <p class="hotel-brand">COURTYARD BY MARRIOTT</p>
+                        <div class="hotel-info">
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房代碼</span>
+                                <div class="hotel-code" onclick="copyCode('C1627')">
+                                    <span class="code">C1627</span>
+                                    <span class="copy-icon">📋</span>
+                                </div>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房方式</span>
+                                <span class="hotel-info-value">萬豪官網/APP</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">適用等級</span>
+                                <span class="hotel-info-value">全等級</span>
+                            </div>
+                        </div>
+                        <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
+                        <div class="hotel-detail">
+                            <ul>
+                                <li>不限平假日 NT$3,599 起含稅及服務費</li>
+                                <li>免費停車權益</li>
+                                <li>加購早餐尊榮特惠 NT$499/人</li>
+                                <li>可累積萬豪旅享家點數房晚</li>
+                                <li>可享萬豪旅享家會員升級及酒廊權益</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card fade-in">
+                        <h3 class="hotel-name">臺中萬楓酒店</h3>
+                        <p class="hotel-brand">FAIRFIELD BY MARRIOTT</p>
+                        <div class="hotel-info">
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房代碼</span>
+                                <div class="hotel-code" onclick="copyCode('C1627')">
+                                    <span class="code">C1627</span>
+                                    <span class="copy-icon">📋</span>
+                                </div>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房方式</span>
+                                <span class="hotel-info-value">萬豪官網/APP</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">適用等級</span>
+                                <span class="hotel-info-value">全等級</span>
+                            </div>
+                        </div>
+                        <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
+                        <div class="hotel-detail">
+                            <ul>
+                                <li>客房 NT$3,500 起含稅及服務費</li>
+                                <li>套房 NT$6,000 起含稅及服務費</li>
+                                <li>提供每日免費雙人早餐</li>
+                                <li>免費停車權益</li>
+                                <li>可使用現代設計健身房</li>
+                                <li>尊享會員餐飲優惠</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card fade-in">
+                        <h3 class="hotel-name">台北寒舍喜來登</h3>
+                        <p class="hotel-brand">SHERATON GRAND TAIPEI</p>
+                        <div class="hotel-info">
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房代碼</span>
+                                <div class="hotel-code" onclick="copyCode('C1627')">
+                                    <span class="code">C1627</span>
+                                    <span class="copy-icon">📋</span>
+                                </div>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房方式</span>
+                                <span class="hotel-info-value">萬豪官網/APP</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">適用等級</span>
+                                <span class="hotel-info-value">鑽石以上</span>
+                            </div>
+                        </div>
+                        <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
+                        <div class="hotel-detail">
+                            <ul>
+                                <li>鑽石貴賓連續入住二晚享住一送一（第二晚免費）</li>
+                                <li>每付費房晚尊享加贈 1,888 萬豪積分</li>
+                                <li>適用萬豪旅享家禮遇，可累積點數房晚</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card fade-in">
+                        <h3 class="hotel-name">宜蘭力麗威斯汀</h3>
+                        <p class="hotel-brand">THE WESTIN YILAN</p>
+                        <div class="hotel-info">
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房代碼</span>
+                                <div class="hotel-code" onclick="copyCode('C1627')">
+                                    <span class="code">C1627</span>
+                                    <span class="copy-icon">📋</span>
+                                </div>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房方式</span>
+                                <span class="hotel-info-value">萬豪官網/APP</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">注意事項</span>
+                                <span class="hotel-info-value">需出示實體卡</span>
+                            </div>
+                        </div>
+                        <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
+                        <div class="hotel-detail">
+                            <p style="color: var(--gold); font-size: 0.82rem; margin-bottom: 8px;">全台獨家「週末及假日不加價」</p>
+                            <ul>
+                                <li>鑽石：單臥別墅 NT$14,888/晚 贈雙人早餐</li>
+                                <li>鑽石：雙臥別墅 NT$23,888/晚 贈四人早餐</li>
+                                <li>其他：單臥別墅 NT$24,888/晚 贈雙人早餐</li>
+                                <li>其他：雙臥別墅 NT$33,888/晚 贈四人早餐</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card fade-in">
+                        <h3 class="hotel-name">台北艾麗希爾頓格芮精選酒店</h3>
+                        <p class="hotel-brand">HUMBLE HOUSE TAIPEI, CURIO COLLECTION BY HILTON</p>
+                        <div class="hotel-info">
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房方式</span>
+                                <span class="hotel-info-value">找黑龍安排</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">專屬禮遇</span>
+                                <span class="hotel-info-value">保證升級</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">適用等級</span>
+                                <span class="hotel-info-value">行政白金以上</span>
+                            </div>
+                        </div>
+                        <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
+                        <div class="hotel-detail">
+                            <ul>
+                                <li>鑽石：保證升等至指定房型、迎賓點心、歡迎禮遇</li>
+                                <li>行政白金以上：保證升級一階、歡迎禮遇</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card fade-in">
+                        <h3 class="hotel-name">高雄英迪格</h3>
+                        <p class="hotel-brand">HOTEL INDIGO KAOHSIUNG</p>
+                        <div class="hotel-info">
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房方式</span>
+                                <span class="hotel-info-value">找黑龍安排</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">專屬禮遇</span>
+                                <span class="hotel-info-value">保證升級</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">適用等級</span>
+                                <span class="hotel-info-value">行政白金以上</span>
+                            </div>
+                        </div>
+                        <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
+                        <div class="hotel-detail">
+                            <ul>
+                                <li>鑽石：保證升等至網美房、迎賓飲品、迎賓點心、豪華歡迎禮遇</li>
+                                <li>行政白金以上：保證升級一階、歡迎禮遇</li>
+                                <li>需訂包早餐方案方得享有禮遇</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card fade-in">
+                        <h3 class="hotel-name">高雄然一翡世之選酒店</h3>
+                        <p class="hotel-brand">THE AMNIS KAOHSIUNG, THE LUXURY COLLECTION</p>
+                        <div class="hotel-info">
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房代碼</span>
+                                <div class="hotel-code" onclick="copyCode('C1627')">
+                                    <span class="code">C1627</span>
+                                    <span class="copy-icon">📋</span>
+                                </div>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">訂房方式</span>
+                                <span class="hotel-info-value">萬豪官網/APP 或找黑龍</span>
+                            </div>
+                            <div class="hotel-info-item">
+                                <span class="hotel-info-label">適用等級</span>
+                                <span class="hotel-info-value">全等級</span>
+                            </div>
+                        </div>
+                        <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
+                        <div class="hotel-detail">
+                            <p style="color: var(--gold); font-size: 0.82rem; margin-bottom: 6px;">基本房型（找黑龍安排）</p>
+                            <ul>
+                                <li>鑽石：保證升等至指定套房</li>
+                                <li>行政白金以上：保證升級一階</li>
+                                <li>雙人早餐 + 早進晚退 + 至高 NT$3,000 消費額</li>
+                            </ul>
+                            <p style="color: var(--gold); font-size: 0.82rem; margin: 12px 0 6px;">套房方案（官網 C1627）</p>
+                            <ul>
+                                <li>港景／城景套房 NT$23,888 不限平假日</li>
+                                <li>鑽石贈 88,888 點 / 非鑽石贈 68,888 點</li>
+                                <li>Happy Hour + 來回接送往返高鐵或機場</li>
+                                <li>免費雙人早餐 + 免費停車</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hotel-notice fade-in">
+                    <h3 class="hotel-notice-title">
+                        <span>📋</span> 訂房重要須知
+                    </h3>
+                    <div class="hotel-notice-grid">
+                        <div class="notice-item">
+                            <span class="icon">👤</span>
+                            <p>訂房需<strong>會員本人</strong>入住，不得轉讓或轉賣，<strong>一卡限訂一房</strong></p>
+                </div>
+                        <div class="notice-item">
+                            <span class="icon">🪪</span>
+                            <p>入住須出示<strong>會員卡</strong>。如無會員卡時，請出示有效入會LINE@訊息</p>
+                    </div>
+                        <div class="notice-item">
+                            <span class="icon">💻</span>
+                            <p>僅接受<strong>官網預訂</strong>，禁止致電或 Email 訂房</p>
+                </div>
+                        <div class="notice-item">
+                            <span class="icon">📅</span>
+                            <p>優惠有效期至 <strong>2026/12/30</strong>，價格依飯店調整</p>
+                        </div>
+                        <div class="notice-item">
+                            <span class="icon">🏨</span>
+                            <p>套房以上房型請說「<strong>尊貴禮遇訂房</strong>」由窗口安排</p>
+                        </div>
+                        <div class="notice-item">
+                            <span class="icon">⚠️</span>
+                            <p>豪華酒店訂房需透過管家，<strong>違規者可能被取消會籍</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section" id="benefits">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p class="section-eyebrow">How to Use</p>
+                    <h2 class="section-title">權益使用指南</h2>
+                    <p class="section-desc">詳細步驟教學，讓你輕鬆享用每一項專屬權益</p>
+                </div>
+
+                <div class="benefits-tabs fade-in">
+                    <button class="benefit-tab active" onclick="showBenefitPanel('booking', event)">官網訂房</button>
+                    <button class="benefit-tab" onclick="showBenefitPanel('linebooking', event)">LINE@訂房</button>
+                    <button class="benefit-tab" onclick="showBenefitPanel('transfer', event)">機場接送</button>
+                    <button class="benefit-tab" onclick="showBenefitPanel('hyvip', event)">尊榮通關</button>
+                    <button class="benefit-tab" onclick="showBenefitPanel('hoshinoya', event)">星野集團</button>
+                    <button class="benefit-tab" onclick="showBenefitPanel('suite', event)">套房兌換</button>
+                    <button class="benefit-tab" onclick="showBenefitPanel('dragon', event)">黑龍巡價</button>
+                    <button class="benefit-tab" onclick="showBenefitPanel('calculator', event)">回饋計算器</button>
+                </div>
+
+                <div class="panel-indicators" id="panelIndicators" aria-label="權益分頁位置"></div>
+
+                <div class="benefit-panels fade-in" id="benefitPanelsContainer">
+                    <div class="benefit-panels-track" id="benefitPanelsTrack">
+                    <div class="benefit-panel active" id="panel-booking">
+                        <div class="benefit-detail">
+                            <div class="benefit-detail-header">
+                                <div class="benefit-detail-info">
+                                    <div class="benefit-detail-icon">🏨</div>
+                                    <div class="benefit-detail-text">
+                                        <h3>萬豪官網優惠訂房</h3>
+                                        <p>輸入專屬代碼享會員專屬價格</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-tiers-list">
+                                    <span class="tier-badge platinum">白金</span>
+                                    <span class="tier-badge executive">行政</span>
+                                    <span class="tier-badge executive">行政+</span>
+                                    <span class="tier-badge diamond">鑽石</span>
+                                    <span class="tier-badge diamond-plus">尊貴鑽石</span>
+                                </div>
+                            </div>
+                            <div class="benefit-detail-body">
+                                <h4 class="tutorial-title">使用步驟</h4>
+                                <div class="tutorial-steps">
+                                    <div class="tutorial-step">
+                                        <div class="step-num">1</div>
+                                        <h4>前往萬豪官網</h4>
+                                        <p>開啟 <a href="https://www.marriott.com" target="_blank" rel="noopener noreferrer">marriott.com</a>，搜尋想入住的飯店名稱</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">2</div>
+                                        <h4>展開特殊費率</h4>
+                                        <p>在搜尋欄下方點擊「特殊費率」或「Special Rates」選項</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">3</div>
+                                        <h4>輸入專屬代碼</h4>
+                                        <p>在「公司/促銷代碼」欄位輸入：</p>
+                                        <div class="code-box" onclick="copyCode('C1627')">
+                                            <span class="code-value">C1627</span>
+                                            <span class="code-copy">點擊複製</span>
+                                        </div>
+                                        <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px;">
+                                            ※ 南港六福萬怡使用代碼 <strong style="color: var(--gold);">C1627</strong>
+                                        </p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">4</div>
+                                        <h4>完成訂房</h4>
+                                        <p>選擇日期與房型，完成付款即享會員專屬價格</p>
+                                    </div>
+                                </div>
+                                <div class="tips-section">
+                                    <div class="tip-box">
+                                        <span class="icon">💡</span>
+                                        <p><strong>小提示：</strong>此優惠不限平假日，入住時請出示會員卡或入會訊息以享完整禮遇</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-panel" id="panel-linebooking">
+                        <div class="benefit-detail">
+                            <div class="benefit-detail-header">
+                                <div class="benefit-detail-info">
+                                    <div class="benefit-detail-icon">💬</div>
+                                    <div class="benefit-detail-text">
+                                        <h3>LINE@禮賓管家訂房</h3>
+                                        <p>豪華酒店、特殊需求、尊貴禮遇專屬通道</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-tiers-list">
+                                    <span class="tier-badge executive">行政</span>
+                                    <span class="tier-badge executive">行政+</span>
+                                    <span class="tier-badge diamond">鑽石</span>
+                                    <span class="tier-badge diamond-plus">尊貴鑽石</span>
+                                </div>
+                            </div>
+                            <div class="benefit-detail-body">
+                                <h4 class="tutorial-title">使用步驟</h4>
+                                <div class="tutorial-steps">
+                                    <div class="tutorial-step">
+                                        <div class="step-num">1</div>
+                                        <h4>加入禮賓管家 LINE</h4>
+                                        <p>點擊 <a href="https://apg8.pro/VIP_line" target="_blank" rel="noopener noreferrer">禮賓管家 LINE@</a> 加入好友，或搜尋 ID</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">2</div>
+                                        <h4>說明訂房需求</h4>
+                                        <p>告知管家：入住飯店、日期、房型需求、人數、特殊需求（如升等、慶祝場合等）</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">3</div>
+                                        <h4>管家確認安排</h4>
+                                        <p>管家將協助確認房況與價格，並為您完成預訂</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">4</div>
+                                        <h4>享受專屬禮遇</h4>
+                                        <p>入住時享受會員專屬禮遇、升等、下榻禮遇金等尊榮服務</p>
+                                    </div>
+                                </div>
+                                <div class="tips-section">
+                                    <div class="tip-box">
+                                        <span class="icon">💎</span>
+                                        <p><strong>適用場景：</strong>豪華酒店訂房（如文華東方、W酒店、君悅、晶華等）、台北艾麗、高雄英迪格、套房以上房型、特殊需求安排</p>
+                                    </div>
+                                    <div class="warning-box">
+                                        <span class="icon">⚠️</span>
+                                        <div>
+                                            <p><strong>重要提醒：</strong>行政白金以上會員訂豪華酒店必須透過 LINE 管家，請說「尊貴禮遇訂房」。違規自行訂房者可能被取消會籍。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-panel" id="panel-transfer">
+                        <div class="benefit-detail">
+                            <div class="benefit-detail-header">
+                                <div class="benefit-detail-info">
+                                    <div class="benefit-detail-icon">🚗</div>
+                                    <div class="benefit-detail-text">
+                                        <h3>機場豪華接送 <span class="choice-badge">★ 四選一</span></h3>
+                                        <p>大型車、豪華轎車 · 全球 400 城市服務</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-tiers-list">
+                                    <span class="tier-badge diamond">鑽石</span>
+                                    <span class="tier-badge diamond-plus">尊貴鑽石</span>
+                                </div>
+                            </div>
+                            <div class="benefit-detail-body">
+                                <h4 class="tutorial-title">使用步驟</h4>
+                                <div class="tutorial-steps">
+                                    <div class="tutorial-step">
+                                        <div class="step-num">1</div>
+                                        <h4>透過禮賓管家預約</h4>
+                                        <p>透過 <a href="https://apg8.pro/VIP_line" target="_blank" rel="noopener noreferrer">環球禮賓管家</a> 提出接送需求，建議提前 14 天預約</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">2</div>
+                                        <h4>提供接送資訊</h4>
+                                        <p>告知管家：接送日期時間、航班資訊、接送地址、人數與行李數</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">3</div>
+                                        <h4>支付行政贊助金</h4>
+                                        <p>14天前 $888 / 14天內 $1,888 / 48小時內 $2,888</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">4</div>
+                                        <h4>當日享受服務</h4>
+                                        <p>專車準時抵達，司機協助行李，享受尊榮接送體驗</p>
+                                    </div>
+                                </div>
+                                <div class="tips-section">
+                                    <div class="warning-box">
+                                        <span class="icon">⚠️</span>
+                                        <div>
+                                            <p><strong>重要提醒：</strong>取消不退費且扣次數；No-show 扣三次。更改日期需在出發前 72 小時。每車限 4 人 + 2小4大行李。</p>
+                                        </div>
+                                    </div>
+                                    <div class="tip-box">
+                                        <span class="icon">💡</span>
+                                        <p><strong>免加價項目：</strong>舉牌、夜間、大車、春節、假期用車皆免加價</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                    <div class="benefit-panel" id="panel-hyvip">
+                        <div class="benefit-detail">
+                            <div class="benefit-detail-header">
+                                <div class="benefit-detail-info">
+                                    <div class="benefit-detail-icon">✈️</div>
+                                    <div class="benefit-detail-text">
+                                        <h3>寰宇尊榮通關 <span class="choice-badge">★ 四選一</span></h3>
+                                        <p>快速出入境 · 專屬空間 · 餐飲服務</p>
+                        </div>
+                        </div>
+                                <div class="benefit-tiers-list">
+                                    <span class="tier-badge executive">行政+</span>
+                                    <span class="tier-badge diamond">鑽石</span>
+                                    <span class="tier-badge diamond-plus">尊貴鑽石</span>
+                        </div>
+                        </div>
+                            <div class="benefit-detail-body">
+                                <h4 class="tutorial-title">使用步驟</h4>
+                                <div class="tutorial-steps">
+                                    <div class="tutorial-step">
+                                        <div class="step-num">1</div>
+                                        <h4>提前 10 天申請</h4>
+                                        <p>透過禮賓管家填寫「寰宇通關需求表」，提供所有旅客護照與機票圖檔</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">2</div>
+                                        <h4>支付行政贊助金</h4>
+                                        <p>💎 鑽石：28天前 $888、14-27天 $1,888、3-13天 $2,888</p>
+                                        <p>♠️ 行政白金PLUS：90天前 $888、28-90天 $1,888、14-27天 $2,888、13天內 $3,888</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">3</div>
+                                        <h4>等待核准通知</h4>
+                                        <p>需政府單位同意，管家會回覆確認結果</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">4</div>
+                                        <h4>當日前往報到</h4>
+                                        <p>出境建議班機起飛前 1 小時抵達</p>
+                                    </div>
+                                </div>
+                                <div class="tips-section">
+                                    <div class="warning-box">
+                                        <span class="icon">⚠️</span>
+                                        <div>
+                                            <p><strong>重要提醒：</strong>2024/10/1 起需於航班 36 小時前完成申請。取消不退費且扣次數。每次申請都需重新上傳護照與機票。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-panel" id="panel-hoshinoya">
+                        <div class="benefit-detail">
+                            <div class="benefit-detail-header">
+                                <div class="benefit-detail-info">
+                                    <div class="benefit-detail-icon">🏯</div>
+                                    <div class="benefit-detail-text">
+                                        <h3>星野集團住宿</h3>
+                                        <p>虹夕諾雅、界、RISONARE 至低 32 折</p>
+                        </div>
+                        </div>
+                                <div class="benefit-tiers-list">
+                                    <span class="tier-badge diamond">鑽石</span>
+                                    <span class="tier-badge diamond-plus">尊貴鑽石</span>
+                        </div>
+                    </div>
+                            <div class="benefit-detail-body">
+                                <h4 class="tutorial-title">使用步驟</h4>
+                                <div class="tutorial-steps">
+                                    <div class="tutorial-step">
+                                        <div class="step-num">1</div>
+                                        <h4>致電環球禮賓中心</h4>
+                                        <p>撥打專線：<a href="tel:02-6619-9263">02-6619-9263</a>（24小時服務）</p>
+                        </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">2</div>
+                                        <h4>告知會員身份</h4>
+                                        <p>說明您是環哩匯鑽石會員，並告知想入住的星野品牌、日期、人數</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">3</div>
+                                        <h4>享受專屬折扣</h4>
+                                        <p>全品牌適用，連續入住可疊加優惠</p>
+                                    </div>
+                                </div>
+                                <div class="tips-section">
+                                    <div class="tip-box">
+                                        <span class="icon">💡</span>
+                                        <p><strong>小提示：</strong>此為鑽石會員以上獨享權益，白金與行政白金會員不適用</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-panel" id="panel-suite">
+                        <div class="benefit-detail">
+                            <div class="benefit-detail-header">
+                                <div class="benefit-detail-info">
+                                    <div class="benefit-detail-icon">🛏️</div>
+                                    <div class="benefit-detail-text">
+                                        <h3>年度免費套房 <span class="choice-badge">★ 四選一</span></h3>
+                                        <p>行政白金+ 至多1次 / 鑽石 3-4 晚 / 尊貴鑽石 指定總套8晚</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-tiers-list">
+                                    <span class="tier-badge executive">行政+</span>
+                                    <span class="tier-badge diamond">鑽石</span>
+                                    <span class="tier-badge diamond-plus">尊貴鑽石</span>
+                                </div>
+                            </div>
+                            <div class="benefit-detail-body">
+                                <h4 class="tutorial-title">使用步驟</h4>
+                                <div class="tutorial-steps">
+                                    <div class="tutorial-step">
+                                        <div class="step-num">1</div>
+                                        <h4>等待FB社團公告</h4>
+                                        <p>關注社團，等待「年度免費套房批次兌換」開放通知</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">2</div>
+                                        <h4>提出兌換申請</h4>
+                                        <p>在公告的申請期間內，依指定方式提交您的兌換需求（飯店、日期、房型偏好）</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">3</div>
+                                        <h4>等待配對結果</h4>
+                                        <p>社團將依據會員等級分梯次兌換，並通知結果</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">4</div>
+                                        <h4>確認入住資訊</h4>
+                                        <p>收到確認通知後，依指示完成後續入住準備</p>
+                                    </div>
+                                </div>
+                                <div class="tips-section">
+                                    <div class="tip-box">
+                                        <span class="icon">💡</span>
+                                        <p><strong>小提示：</strong>批次兌換時間不定期，請密切關注FB社團公告，錯過申請期間需等待下一批次</p>
+                                    </div>
+                                    <div class="warning-box">
+                                        <span class="icon">⚠️</span>
+                                        <div>
+                                            <p><strong>四選一重要提醒：</strong>年度免費套房、國內機場接送、寰宇尊榮通關、海外機場接送為「擇一」享有，一旦選定不可更換。權益年度內未用完視同放棄。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-panel" id="panel-dragon">
+                        <div class="benefit-detail">
+                            <div class="benefit-detail-header">
+                                <div class="benefit-detail-info">
+                                    <div class="benefit-detail-icon">🐉</div>
+                                    <div class="benefit-detail-text">
+                                        <h3>黑龍巡價</h3>
+                                        <p>STAY with DIAMOND · Diamond Monitor</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-tiers-list">
+                                    <span class="tier-badge diamond">鑽石</span>
+                                    <span class="tier-badge diamond-plus">尊貴鑽石</span>
+                                </div>
+                            </div>
+                            <div class="benefit-detail-body">
+                                <h4 class="tutorial-title">服務說明</h4>
+                                <div class="tutorial-steps">
+                                    <div class="tutorial-step">
+                                        <div class="step-num">1</div>
+                                        <h4>透過 LINE@ 預定酒店</h4>
+                                        <p>使用 <a href="https://apg8.pro/VIP_line" target="_blank" rel="noopener noreferrer">禮賓管家 LINE@</a> 預訂合作酒店</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">2</div>
+                                        <h4>365天動態監控</h4>
+                                        <p>黑龍巡價將於預訂後 365 天內動態監控房價波動</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">3</div>
+                                        <h4>價格下跌自動通知</h4>
+                                        <p>當價格下跌達 50 至 8,500 美元，專員將即時通知並協助變更價格</p>
+                                    </div>
+                                    <div class="tutorial-step">
+                                        <div class="step-num">4</div>
+                                        <h4>支付行政費完成變更</h4>
+                                        <p>每次變更需支付行政費，鑽石會員享有不限次數的變價機會</p>
+                                    </div>
+                                </div>
+                                <div class="tips-section">
+                                    <div class="tip-box">
+                                        <span class="icon">💎</span>
+                                        <p><strong>服務特色：</strong>確保預訂後價格波動不再成為煩惱，入住頂奢酒店每一細節皆倍感安心</p>
+                                    </div>
+                                    <div class="warning-box">
+                                        <span class="icon">⚠️</span>
+                                        <div>
+                                            <p><strong>注意事項：</strong>此服務並非最低價格保證，適用於價格變動範圍 50-8,500 美元之間。僅適用於 LINE@ 訂房訂單，電話客服訂單不包含在內。相同客人於入住期間僅可享受一次專享優待，拆分預訂無效。忠誠鑽石會員（每半年續會）可不限於豪華酒店。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-panel" id="panel-calculator">
+                        <div class="calculator-container">
+                            <div class="calc-hotel-bar">
+                                <div class="calc-hotel-bar-top">
+                                    <div class="calc-hotel-bar-info">
+                                        <div class="hotel-brand">COURTYARD BY MARRIOTT</div>
+                                        <div class="hotel-name">南港六福萬怡酒店</div>
+                                        <div class="calc-hotel-bar-meta">
+                                            <span class="promo-title">套房贈點方案</span>
+                                            <span class="calc-price-label">環哩匯貴賓專屬 · 不限平日假日</span>
+                                        </div>
+                                    </div>
+                                    <div class="calc-hotel-bar-price">
+                                        <div class="calc-price-value"><span>NT$</span> 23,888</div>
+                                        <div class="calc-price-note">含稅及服務費 · 精緻套房</div>
+                                    </div>
+                                </div>
+                                <div class="calc-hotel-bar-bottom">
+                                    <div class="calc-tier-chips">
+                                        <div class="calc-tier-item">
+                                            <span class="calc-tier-badge">環哩匯鑽石貴賓以上</span>
+                                            <div class="calc-tier-points">80,888 <span>點</span></div>
+                                        </div>
+                                        <div class="calc-tier-item">
+                                            <span class="calc-tier-badge platinum">環哩匯其他會員</span>
+                                            <div class="calc-tier-points">60,888 <span>點</span></div>
+                                        </div>
+                                        <div class="calc-tier-item">
+                                            <span class="calc-tier-badge none">非環哩匯會員</span>
+                                            <div class="calc-tier-points none">無方案贈點</div>
+                                        </div>
+                                    </div>
+                                    <div class="calc-benefits-list">
+                                        <ul>
+                                            <li>每日免費雙人早餐</li>
+                                            <li>免費停車權益</li>
+                                            <li>可累積萬豪旅享家點數房晚</li>
+                                            <li>可享酒廊權益</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-main-area">
+                            <div class="calc-form-card">
+                                <h3 class="calc-form-title">積分回饋計算器</h3>
+                                
+                                <div class="calc-section-title">📋 基本設定</div>
+                                
+                                <div class="calc-form-group">
+                                    <label>選擇特案飯店</label>
+                                    <select id="calcHotel" onchange="updateHotelInfo()">
+                                        <option value="courtyard">南港六福萬怡酒店</option>
+                                        <option value="amnis">高雄然一翡世之選酒店</option>
+                                        <option value="other">其他（非特案飯店）</option>
+                                    </select>
+                                </div>
+
+                                <label class="calc-inline-toggle" id="calcSpecialPlanToggleWrap">
+                                    <div>
+                                        <div class="text">套用特案贈點</div>
+                                        <div class="hint">關閉可用於一般飯店回饋估算</div>
+                                    </div>
+                                    <input type="checkbox" id="calcApplySpecialPlan" checked onchange="calculateCashback()">
+                                </label>
+
+                                <div class="calc-form-row">
+                                    <div class="calc-form-group">
+                                        <label>環哩匯會員等級</label>
+                                        <select id="calcHuanlihuiTier" onchange="calculateCashback()">
+                                            <option value="diamond">鑽石貴賓以上</option>
+                                            <option value="other">其他會員</option>
+                                            <option value="none">非環哩匯會員</option>
+                                        </select>
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>萬豪會籍</label>
+                                        <select id="calcMarriottTier" onchange="calculateCashback()">
+                                            <option value="ambassador">大使菁英</option>
+                                            <option value="titanium">鈦金菁英</option>
+                                            <option value="platinum">白金菁英</option>
+                                            <option value="gold">黃金菁英</option>
+                                            <option value="silver">銀卡菁英</option>
+                                            <option value="member">普通會員</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="calc-form-row">
+                                    <div class="calc-form-group">
+                                        <label>房價金額</label>
+                                        <div class="calc-input-unit">
+                                            <input type="number" id="calcRoomPrice" value="23888" onchange="calculateCashback()">
+                                            <span class="unit">TWD</span>
+                                        </div>
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>實付金額</label>
+                                        <div class="calc-input-unit">
+                                            <input type="number" id="calcActualPrice" value="23888" onchange="calculateCashback()">
+                                            <span class="unit">TWD</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="calc-form-row-3">
+                                    <div class="calc-form-group">
+                                        <label>匯率 (USD/TWD) <button type="button" class="calc-refresh-btn" onclick="fetchExchangeRate()" title="取得實時匯率">🔄</button></label>
+                                        <input type="number" id="calcExchangeRate" value="32.5" step="0.01" onchange="calculateCashback()">
+                                        <div class="calc-rate-status" id="calcRateStatus"></div>
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>稅費比率 <span class="calc-info-icon" data-tip="台灣酒店約 15.5%~16.6%">?</span></label>
+                                        <input type="number" id="calcTaxRate" value="0.166" step="0.001" onchange="calculateCashback()">
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>入住天數</label>
+                                        <input type="number" id="calcNights" value="1" min="1" onchange="calculateCashback()">
+                                    </div>
+                                </div>
+
+                                <div class="calc-section-title">🎯 積分計算</div>
+
+                                <div class="calc-form-row">
+                                    <div class="calc-form-group">
+                                        <label>基礎積分 <span class="calc-info-icon" data-tip="稅前房價(USD) × 10點">?</span></label>
+                                        <input type="number" id="calcBasePoints" class="calc-readonly" readonly>
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>會籍積分 <span class="calc-info-icon" data-tip="根據萬豪會籍加成">?</span></label>
+                                        <input type="number" id="calcTierPoints" class="calc-readonly" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="calc-form-row">
+                                    <div class="calc-form-group">
+                                        <label>方案贈點 (環哩匯)</label>
+                                        <input type="number" id="calcPromoPoints" class="calc-readonly" readonly>
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>其他積分</label>
+                                        <input type="number" id="calcOtherPoints" value="0" placeholder="歡迎/季度/定向等" onchange="calculateCashback()">
+                                    </div>
+                                </div>
+
+                                <div class="calc-section-title">💵 價值設定</div>
+
+                                <div class="calc-form-row-3">
+                                    <div class="calc-form-group">
+                                        <label>積分價值 <span class="calc-info-icon" data-tip="約 0.2~0.26 TWD/點">?</span></label>
+                                        <div class="calc-input-unit">
+                                            <input type="number" id="calcPointValue" value="0.23" step="0.01" onchange="calculateCashback()">
+                                            <span class="unit">TWD/分</span>
+                                        </div>
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>早餐價值/天</label>
+                                        <div class="calc-input-unit">
+                                            <input type="number" id="calcBreakfastValue" value="0" onchange="calculateCashback()">
+                                            <span class="unit">TWD</span>
+                                        </div>
+                                    </div>
+                                    <div class="calc-form-group">
+                                        <label>停車價值/天</label>
+                                        <div class="calc-input-unit">
+                                            <input type="number" id="calcParkingValue" value="0" onchange="calculateCashback()">
+                                            <span class="unit">TWD</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="calc-btn" onclick="calculateCashback()">計算回饋比例</button>
+                            </div>
+
+                            <div class="calc-results-panel">
+                                <div class="calc-result-highlight">
+                                    <div class="label">回饋比例</div>
+                                    <div class="value" id="calcCashbackRate">0%</div>
+                                    <div class="note">參考成本：NT$ <span id="calcActualCost">0</span></div>
+                                </div>
+
+                                <div class="calc-meter">
+                                    <div class="calc-meter-fill" id="calcCashbackMeter" style="width: 0%;">0%</div>
+                                </div>
+
+                                <div class="calc-suggestion" id="calcSuggestionBox">
+                                    入住建議：計算中...
+                                </div>
+
+                                <div class="calc-result-section">
+                                    <h4>積分明細</h4>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">基礎積分</span>
+                                        <span class="calc-result-value" id="resultCalcBasePoints">0 點</span>
+                                    </div>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">會籍積分</span>
+                                        <span class="calc-result-value" id="resultCalcTierPoints">0 點</span>
+                                    </div>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">方案贈點</span>
+                                        <span class="calc-result-value" id="resultCalcPromoPoints">0 點</span>
+                                    </div>
+                                    <div class="calc-result-item" id="extraBonusRow" style="display: none;">
+                                        <span class="calc-result-label">每晚加贈</span>
+                                        <span class="calc-result-value" id="resultCalcExtraBonus">0 點</span>
+                                    </div>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">其他積分</span>
+                                        <span class="calc-result-value" id="resultCalcOtherPoints">0 點</span>
+                                    </div>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">總計積分</span>
+                                        <span class="calc-result-value highlight" id="resultCalcTotalPoints">0 點</span>
+                                    </div>
+                                </div>
+
+                                <div class="calc-result-section">
+                                    <h4>價值計算</h4>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">積分價值</span>
+                                        <span class="calc-result-value" id="resultCalcPointsValue">NT$ 0</span>
+                                    </div>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">早餐價值</span>
+                                        <span class="calc-result-value" id="resultCalcBreakfastValue">NT$ 0</span>
+                                    </div>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">停車價值</span>
+                                        <span class="calc-result-value" id="resultCalcParkingValue">NT$ 0</span>
+                                    </div>
+                                    <div class="calc-result-item">
+                                        <span class="calc-result-label">總回饋價值</span>
+                                        <span class="calc-result-value highlight" id="resultCalcTotalValue">NT$ 0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="transfer-section" id="transfer-table">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p class="section-eyebrow">Transfer Quota</p>
+                    <h2 class="section-title">機場接送次數表</h2>
+                    <p class="section-desc">依會員登記地址與續會/新辦狀態查詢可用次數</p>
+                    </div>
+
+                <div class="transfer-tabs fade-in">
+                    <button class="transfer-tab active" onclick="showTransferTable('tpe', event)">桃園機場 TPE</button>
+                    <button class="transfer-tab" onclick="showTransferTable('khh', event)">高雄機場 KHH</button>
+                    <button class="transfer-tab" onclick="showTransferTable('combo', event)">接送+通關組合</button>
+                </div>
+
+                <div class="transfer-note fade-in" id="combo-note" style="display: none;">
+                    <span class="note-icon">💡</span>
+                    <span class="note-text"><strong>組合方案說明：</strong>「接送次數」為機場接送可用次數；「通關人次」為寰宇尊榮通關可用人次（例如：4人次可供一家4口同行使用1次，或自己單獨使用4次）</span>
+                </div>
+
+                <div class="transfer-table-wrapper fade-in">
+                    <table class="transfer-table" id="table-tpe">
+                        <thead>
+                            <tr>
+                                <th>出發地區</th>
+                                <th>續會次數</th>
+                                <th>新辦次數</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>台北</td><td>24</td><td>18</td></tr>
+                            <tr><td>新北</td><td>24</td><td>18</td></tr>
+                            <tr><td>桃園</td><td>24</td><td>18</td></tr>
+                            <tr><td>基隆</td><td>20</td><td>15</td></tr>
+                            <tr><td>新竹</td><td>15</td><td>11</td></tr>
+                            <tr><td>苗栗</td><td>12</td><td>9</td></tr>
+                            <tr><td>宜蘭</td><td>10</td><td>8</td></tr>
+                            <tr><td>台中</td><td>10</td><td>7</td></tr>
+                            <tr><td>台南</td><td>4</td><td>3</td></tr>
+                            <tr><td>高雄</td><td>4</td><td>3</td></tr>
+                            <tr><td>屏東</td><td>4</td><td>3</td></tr>
+                            <tr><td>花蓮</td><td>4</td><td>3</td></tr>
+                        </tbody>
+                    </table>
+
+                    <table class="transfer-table" id="table-khh" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>出發地區</th>
+                                <th>續會次數</th>
+                                <th>新辦次數</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>高雄</td><td>24</td><td>18</td></tr>
+                            <tr><td>台南</td><td>16</td><td>12</td></tr>
+                            <tr><td>屏東</td><td>16</td><td>12</td></tr>
+                            <tr><td>花蓮</td><td>4</td><td>3</td></tr>
+                        </tbody>
+                    </table>
+
+                    <table class="transfer-table" id="table-combo" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>出發地區</th>
+                                <th>續會<br><small style="font-weight:400;opacity:0.7;">接送次數 + 通關人次</small></th>
+                                <th>新辦<br><small style="font-weight:400;opacity:0.7;">接送次數 + 通關人次</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>台北</td><td>10次 + 4人次</td><td>7次 + 3人次</td></tr>
+                            <tr><td>新北</td><td>10次 + 4人次</td><td>7次 + 3人次</td></tr>
+                            <tr><td>桃園</td><td>10次 + 4人次</td><td>8次 + 3人次</td></tr>
+                            <tr><td>基隆</td><td>8次 + 4人次</td><td>6次 + 3人次</td></tr>
+                            <tr><td>新竹</td><td>5次 + 4人次</td><td>4次 + 3人次</td></tr>
+                            <tr><td>苗栗</td><td>4次 + 4人次</td><td>3次 + 3人次</td></tr>
+                            <tr><td>宜蘭</td><td>4次 + 4人次</td><td>3次 + 3人次</td></tr>
+                            <tr><td>台中</td><td>3次 + 4人次</td><td>3次 + 3人次</td></tr>
+                            <tr><td>台南</td><td>2次 + 3人次</td><td>2次 + 2人次</td></tr>
+                            <tr><td>高雄</td><td>2次 + 3人次</td><td>2次 + 2人次</td></tr>
+                            <tr><td>屏東</td><td>2次 + 3人次</td><td>2次 + 2人次</td></tr>
+                            <tr><td>花蓮</td><td>2次 + 3人次</td><td>2次 + 2人次</td></tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p class="section-eyebrow">FAQ</p>
+                    <h2 class="section-title">常見問題</h2>
+    </div>
+
+                <div class="faq-grid fade-in">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>會員權益可以轉讓給家人或朋友嗎？</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                不行。多數權益限持卡人本人使用，違規轉讓、轉售、套利等行為可能被取消會員資格。使用權益時需出示有效會員卡或入會 LINE@ 訊息與本人證件。
+                        </div>
+                        </div>
+                        </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>權益年度內未用完怎麼辦？</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                視同放棄，不延期、不退現金、不保留。建議提前規劃使用，充分享受會員權益。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>可以電話或 Email 訂房嗎？</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                不行，國內直營飯店僅接受官網預訂。請至萬豪官網或 APP 輸入專屬代碼訂房；部分飯店（台北艾麗、高雄英迪格）需透過黑龍安排。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>機場接送可以臨時預約嗎？</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                48 小時內可以預約，但不保證調度成功。若成功才收行政贊助金 $2,888，取消不退且仍扣次數。建議提前 14 天以上預約。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>寰宇尊榮通關需要多久前申請？</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                建議至少提前 10 天申請。2024/10/1 起規定：所有申請或異動需於航班起飛或抵達時間至少 36 小時前完成。是否核准需政府單位同意。
+                    </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>白金會員可以使用星野折扣嗎？</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                不行。星野集團折扣為鑽石會員以上獨享權益，白金與行政白金（含 PLUS）不適用。
+                </div>
+            </div>
+        </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>取消預約會怎麼計算？</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                多數預約（機場接送、寰宇通關等）取消不退費且扣次數。未使用未取消（No-show）機場接送扣三次使用次數。異動通常收行政費 $888 起。
+    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <blockquote class="quote-text fade-in">
+                "旅行的意義，在於發現世界的美好，<br>
+                更在於體驗<span>專屬於你的尊榮</span>"
+            </blockquote>
+            <p class="quote-author fade-in">— The Dragon Circle</p>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title fade-in">還有疑問？</h2>
+                <p class="cta-desc fade-in">我們的禮賓管家隨時為您服務</p>
+                <a href="https://apg8.pro/VIP_line" class="cta-btn fade-in" target="_blank" rel="noopener noreferrer">
+                    聯繫禮賓管家
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-about">
+                        <span class="footer-brand">
+                            THE DRAGON CIRCLE
+                            <span class="footer-brand-sub">環哩匯 · 尊榮會員計劃</span>
+                        </span>
+                        <p class="footer-desc">
+                            身為臺灣哩程研究社的飛行旅遊常客計劃，我們致力於服務尊尚常旅客。根據每一位尊貴會員的旅遊需求度身打造升級禮遇。
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.ftctw.org/hi" target="_blank" rel="noopener noreferrer" title="環哩匯官網">🌐</a>
+                            <a href="https://www.facebook.com/groups/AsiaMilesClub" target="_blank" rel="noopener noreferrer" title="Facebook 社團">📘</a>
+                            <a href="https://apg8.pro/VIP_line" target="_blank" rel="noopener noreferrer" title="LINE 聯繫管家">💬</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>快速導航</h4>
+                        <ul>
+                            <li><a href="#tiers"><span class="icon">→</span> 會員等級</a></li>
+                            <li><a href="#comparison"><span class="icon">→</span> 權益比較</a></li>
+                            <li><a href="#hotels"><span class="icon">→</span> 直營飯店</a></li>
+                            <li><a href="#benefits"><span class="icon">→</span> 使用指南</a></li>
+                            <li><a href="#faq"><span class="icon">→</span> 常見問題</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>相關連結</h4>
+                        <ul>
+                            <li><a href="https://www.ftctw.org/hi" target="_blank" rel="noopener noreferrer"><span class="icon">→</span> 環哩匯官網</a></li>
+                            <li><a href="https://www.facebook.com/groups/AsiaMilesClub" target="_blank" rel="noopener noreferrer"><span class="icon">→</span> FB 哩程社團</a></li>
+                            <li><a href="https://www.marriott.com" target="_blank" rel="noopener noreferrer"><span class="icon">→</span> 萬豪官網</a></li>
+                            <li><a href="https://apg8.pro/VIP_line" target="_blank" rel="noopener noreferrer"><span class="icon">→</span> 聯繫禮賓管家</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>理事長</h4>
+                        <a href="https://www.facebook.com/fabianselect.club/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                            <div class="footer-founder">
+                                <img class="founder-avatar" src="Fabian_ico.jpg" alt="Fabian Lee">
+                                <div class="founder-info">
+                                    <div class="founder-name">Fabian Lee</div>
+                                    <div class="founder-title">法比安</div>
+                                </div>
+                            </div>
+                        </a>
+                        <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 15px; line-height: 1.7;">
+                            臺灣哩程研究社理事長<br>
+                            國際航空旅遊產業顧問
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <span class="footer-copy">© 2026 社團法人臺灣哩程研究社 Frequent Traveler Club · All Rights Reserved</span>
+                    <div class="footer-bottom-links">
+                        <a href="https://www.ftctw.org/hi" target="_blank" rel="noopener noreferrer">官方網站</a>
+                        <a href="https://apg8.pro/VIP_line" target="_blank" rel="noopener noreferrer">聯繫我們</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="回到頂部">
+        <svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>
+    </button>
+
+    <div class="copy-toast" id="copyToast">✓ 已複製到剪貼簿</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
