@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dragon Circle | 會員權益使用指南</title>
+
+    <!-- SEO -->
+    <meta name="description" content="THE DRAGON CIRCLE 環哩匯尊榮會員計劃完整權益指南 — 直營飯店住宿、萬豪旅享家積點、國內外機場接送、VIP 禮遇等會員權益的使用說明與回饋試算。">
+    <meta name="author" content="FTC Taiwan">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="canonical" href="https://go.ftctw.org/">
+    <link rel="icon" type="image/jpeg" href="Fabian_ico.jpg">
+    <link rel="apple-touch-icon" href="Fabian_ico.jpg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://go.ftctw.org/">
+    <meta property="og:title" content="THE DRAGON CIRCLE | 會員權益使用指南">
+    <meta property="og:description" content="環哩匯尊榮會員計劃完整權益指南 — 直營飯店、萬豪積點、機場接送、VIP 禮遇一次掌握。">
+    <meta property="og:image" content="https://go.ftctw.org/Fabian_ico.jpg">
+    <meta property="og:site_name" content="FTC Taiwan">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="THE DRAGON CIRCLE | 會員權益使用指南">
+    <meta name="twitter:description" content="環哩匯尊榮會員計劃完整權益指南 — 直營飯店、萬豪積點、機場接送、VIP 禮遇一次掌握。">
+    <meta name="twitter:image" content="https://go.ftctw.org/Fabian_ico.jpg">
+
+    <!-- Content Security Policy (defense in depth) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self' https://open.er-api.com https://cdn.jsdelivr.net; base-uri 'self'; form-action 'self';">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+TC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,20 +50,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="disclaimer-overlay" id="disclaimerOverlay">
+    <div class="disclaimer-overlay" id="disclaimerOverlay" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle" aria-describedby="disclaimerDesc">
         <div class="disclaimer-box">
-            <div class="disclaimer-icon">⚠️</div>
-            <h2 class="disclaimer-title">使用前請閱讀</h2>
-            <div class="disclaimer-content">
+            <div class="disclaimer-icon" aria-hidden="true">⚠️</div>
+            <h2 class="disclaimer-title" id="disclaimerTitle">使用前請閱讀</h2>
+            <div class="disclaimer-content" id="disclaimerDesc">
                 <p>本網站為<strong>哩民自行整理之非官方工具</strong>，僅供參考使用。</p>
                 <p style="margin-top: 12px;">所有會員權益、規範及資訊，請以<strong>官方會員手冊</strong>為準。</p>
             </div>
             <a href="https://www.ftctw.org/vipkit2024go" target="_blank" rel="noopener noreferrer" class="disclaimer-download">
-                <span>📖</span>
+                <span aria-hidden="true">📖</span>
                 <span>下載官方會員手冊</span>
             </a>
             <br>
-            <button class="disclaimer-btn" onclick="closeDisclaimer()">我已了解，繼續瀏覽</button>
+            <button type="button" class="disclaimer-btn" id="disclaimerBtn" onclick="closeDisclaimer()">我已了解，繼續瀏覽</button>
             <p class="disclaimer-note">點擊上方按鈕表示您已閱讀並理解此聲明</p>
         </div>
     </div>
@@ -56,10 +84,10 @@
 
     <main class="main-content" id="mainContent">
         <header id="header">
-            <div class="logo">
+            <a class="logo" href="https://www.ftctw.org/" aria-label="回到 FTC Taiwan 主網站">
                 <span class="logo-main">THE DRAGON CIRCLE</span>
                 <span class="logo-sub">EXCLUSIVE MEMBERSHIP</span>
-            </div>
+            </a>
             <nav>
                 <a href="#tiers">會員等級</a>
                 <a href="#comparison">權益比較</a>
@@ -1662,6 +1690,6 @@
 
     <div class="copy-toast" id="copyToast">✓ 已複製到剪貼簿</div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260405"></script>
 </body>
 </html>

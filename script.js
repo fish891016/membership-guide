@@ -12,7 +12,62 @@
             setTimeout(function() {
                 document.body.classList.add('dragon-active');
             }, 600);
+            // 關閉後把焦點還給第一個主要導覽連結
+            const firstNavLink = document.querySelector('header#header nav a');
+            if (firstNavLink) firstNavLink.focus();
         }
+
+        // Disclaimer modal 無障礙：ESC 關閉 + focus trap + 開啟時自動聚焦
+        (function initDisclaimerA11y() {
+            const overlay = document.getElementById('disclaimerOverlay');
+            if (!overlay) return;
+
+            function getFocusables() {
+                return Array.from(overlay.querySelectorAll(
+                    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                ));
+            }
+
+            // 當 overlay 加上 "show" class 時自動聚焦到主按鈕
+            // 使用 requestAnimationFrame 等下一 frame 再 focus，避免在 display 轉換過程中 focus 失敗
+            const observer = new MutationObserver(function(mutations) {
+                for (const m of mutations) {
+                    if (m.attributeName === 'class' && overlay.classList.contains('show')) {
+                        requestAnimationFrame(() => {
+                            const btn = document.getElementById('disclaimerBtn');
+                            if (btn) btn.focus();
+                        });
+                        break;
+                    }
+                }
+            });
+            observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+
+            // ESC 關閉 + Tab focus trap
+            document.addEventListener('keydown', function(e) {
+                if (!overlay.classList.contains('show')) return;
+
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeDisclaimer();
+                    return;
+                }
+
+                if (e.key === 'Tab') {
+                    const focusables = getFocusables();
+                    if (focusables.length === 0) return;
+                    const first = focusables[0];
+                    const last = focusables[focusables.length - 1];
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            });
+        })();
 
         function toggleMobileNav() {
             const toggle = document.getElementById('menuToggle');
@@ -35,6 +90,17 @@
             toggle.setAttribute('aria-label', '開啟導覽選單');
             document.body.style.overflow = '';
         }
+
+        // ESC 鍵關閉手機導覽（disclaimer modal 有自己的 ESC 處理器，不會衝突）
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileNav && mobileNav.classList.contains('active')) {
+                closeMobileNav();
+                const toggle = document.getElementById('menuToggle');
+                if (toggle) toggle.focus();
+            }
+        });
 
         function toggleTablePin() {
             const toggle = document.getElementById('pinToggle');
@@ -62,37 +128,56 @@
                 document.getElementById('mainContent').classList.add('visible');
                 setTimeout(() => {
                     document.getElementById('disclaimerOverlay').classList.add('show');
-                }, 500);
-            }, 2500);
+                }, 300);
+            }, 800);
         });
 
-        // Header 滾動效果
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        (function initDragonParallax() {
+        // 統一的 scroll 處理器（header 縮放 + hero parallax + back-to-top）
+        // 使用 requestAnimationFrame 節流，避免每次 scroll 都觸發 reflow/repaint
+        (function initScrollHandler() {
+            const header = document.getElementById('header');
             const hero = document.querySelector('.hero');
-            if (!hero) return;
-
+            let backToTop = null; // 延遲查詢，因為可能還沒掛上 DOM
             let ticking = false;
+            let lastScrolled = false;
+            let lastBackToTopShown = false;
+
+            function onScroll() {
+                const scrollY = window.scrollY;
+
+                // Header 縮放效果
+                const shouldScroll = scrollY > 100;
+                if (shouldScroll !== lastScrolled) {
+                    header.classList.toggle('scrolled', shouldScroll);
+                    lastScrolled = shouldScroll;
+                }
+
+                // Hero dragon parallax
+                if (hero) {
+                    const vh = window.innerHeight;
+                    const shift = Math.min(scrollY / vh, 1) * 30;
+                    hero.style.setProperty('--dragon-shift', shift + 'px');
+                }
+
+                // Back-to-top 按鈕顯示
+                if (!backToTop) backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    const shouldShow = scrollY > 500;
+                    if (shouldShow !== lastBackToTopShown) {
+                        backToTop.classList.toggle('show', shouldShow);
+                        lastBackToTopShown = shouldShow;
+                    }
+                }
+
+                ticking = false;
+            }
+
             window.addEventListener('scroll', function() {
                 if (!ticking) {
-                    requestAnimationFrame(function() {
-                        var scrollY = window.scrollY;
-                        var vh = window.innerHeight;
-                        var shift = Math.min(scrollY / vh, 1) * 30;
-                        hero.style.setProperty('--dragon-shift', shift + 'px');
-                        ticking = false;
-                    });
+                    requestAnimationFrame(onScroll);
                     ticking = true;
                 }
-            });
+            }, { passive: true });
         })();
 
         // 滾動顯示動畫
@@ -301,17 +386,6 @@
             });
         }
 
-        // 顯示回到頂部按鈕
-        window.addEventListener('scroll', () => {
-            const backToTop = document.getElementById('backToTop');
-            if (!backToTop) return;
-            if (window.scrollY > 500) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-
         // 平滑滾動到錨點
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -453,6 +527,7 @@
             statusEl.textContent = '🔄 取得匯率中...';
             if (refreshBtn) refreshBtn.classList.add('spinning');
             
+            // 第二個 API 釘在特定版本以防供應鏈攻擊。需要更新時可至 https://github.com/fawazahmed0/exchange-api 查看最新日期版本號。
             const apis = [
                 {
                     name: 'Open ExchangeRate API',
@@ -461,7 +536,7 @@
                 },
                 {
                     name: 'Currency API',
-                    url: 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json',
+                    url: 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2026.4.1/v1/currencies/usd.json',
                     parse: (data) => data.usd?.twd
                 }
             ];

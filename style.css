@@ -213,6 +213,14 @@
         .logo {
             display: flex;
             flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.75;
         }
 
         .logo-main {
