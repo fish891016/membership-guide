@@ -156,7 +156,7 @@ function calc(){
     $('r-cash').textContent='NT$'+fmt(cd);
 
     let bk='';
-    bk+=bkItem('消費累積哩程', c.uni?'消費 NT$'+fmt(ts)+' ÷ '+c.ur:'國內 ÷'+c.dr+' + 海外 ÷'+c.or, sm, sm>0);
+    bk+=bkItem('消費累積哩程', c.uni?'消費 NT$'+fmt(ts)+' ÷ '+c.ur:'國內 ÷ '+c.dr+' + 海外 ÷ '+c.or, sm, sm>0);
     bk+=bkItem('首刷禮','消費滿 NT$'+fmt(c.wt), wb, wOk);
     if(ad) bk+=bkItem('自動扣繳加碼','綁定銀行帳戶自動扣繳',1000,true);
     bk+='<div class="bk-divider">';
