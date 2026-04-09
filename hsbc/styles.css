@@ -480,6 +480,7 @@ input:-webkit-autofill:focus {
     border-radius: var(--r);
     overflow: hidden;
     transition: border-color 0.2s;
+    max-width: 100%;
 }
 .inp-wrap:focus-within {
     border-color: rgba(196,162,101,0.3);
@@ -493,6 +494,7 @@ input:-webkit-autofill:focus {
 }
 .inp-wrap input {
     flex: 1;
+    min-width: 0;
     padding: 12px;
     background: transparent;
     border: none;
@@ -500,6 +502,7 @@ input:-webkit-autofill:focus {
     font-size: 1rem;
     outline: none;
     -moz-appearance: textfield;
+    width: 100%;
 }
 .inp-wrap input::-webkit-outer-spin-button,
 .inp-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; }
@@ -509,6 +512,7 @@ input:-webkit-autofill:focus {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 .chk-row input[type="checkbox"] {
     width: 22px;
@@ -1238,6 +1242,9 @@ footer p { font-size: 0.82rem; color: var(--text-3); }
     .cta-sec { padding: 40px 20px; }
     .crd-media { height: 160px; }
     .crd-media img { max-height: 120px; }
+    .input-panel { padding: 20px 16px; }
+    .chk-row { gap: 8px; }
+    .chk-bonus { width: 100%; margin-top: -2px; }
 }
 
 /* ============================================
