@@ -4195,6 +4195,520 @@
             }
         }
 
+        /* ══════════════════════════════════════════════
+           Comfort Reading Mode — Toggle Button
+           ══════════════════════════════════════════════ */
+
+        .comfort-toggle {
+            position: fixed;
+            bottom: 110px;
+            right: 40px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid rgba(201, 169, 98, 0.3);
+            border-radius: 50%;
+            color: var(--gold);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 998;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .dragon-active .comfort-toggle {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .comfort-toggle:hover {
+            background: rgba(201, 169, 98, 0.2);
+            border-color: rgba(201, 169, 98, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .comfort-toggle:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .comfort-toggle svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--gold);
+            flex-shrink: 0;
+            transition: fill 0.3s;
+        }
+
+        .comfort-toggle .comfort-label {
+            display: none;
+        }
+
+        html.comfort-mode .comfort-toggle {
+            background: rgba(201, 169, 98, 0.25);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(201, 169, 98, 0.15);
+        }
+
+        html.comfort-mode .comfort-toggle svg {
+            fill: var(--gold-light);
+        }
+
+        html.comfort-transitioning {
+            opacity: 0.92;
+            transition: opacity 0.15s ease;
+        }
+
+        @media (max-width: 768px) {
+            .comfort-toggle {
+                bottom: 80px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            .comfort-toggle svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .comfort-toggle {
+                bottom: 76px;
+                right: 16px;
+                width: 43px;
+                height: 43px;
+            }
+            .comfort-toggle svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        /* ══════════════════════════════════════════════
+           Comfort Reading Mode — Visual Overrides
+           ══════════════════════════════════════════════ */
+
+        /* Contrast boost */
+        html.comfort-mode {
+            --text: #F0EDE6;
+            --text-dim: rgba(255,255,255,0.65);
+        }
+
+        /* Line height */
+        html.comfort-mode body {
+            line-height: 2.1;
+        }
+
+        /* ── Body text ── */
+        html.comfort-mode .section-desc,
+        html.comfort-mode .hero-desc,
+        html.comfort-mode .notice-item p,
+        html.comfort-mode .tip-box p,
+        html.comfort-mode .warning-box p,
+        html.comfort-mode .tutorial-step p,
+        html.comfort-mode .faq-answer-content,
+        html.comfort-mode .footer-desc,
+        html.comfort-mode .disclaimer-content,
+        html.comfort-mode .transfer-note .note-text,
+        html.comfort-mode .choice-notice .notice-text,
+        html.comfort-mode .hotel-detail li,
+        html.comfort-mode .promo-note,
+        html.comfort-mode .promo-period span,
+        html.comfort-mode .promo-subtitle {
+            font-size: 1.08rem;
+            line-height: 2.1;
+        }
+
+        /* ── Headings ── */
+        html.comfort-mode .section-title {
+            font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+            letter-spacing: 5px;
+        }
+
+        html.comfort-mode .section-eyebrow {
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+        }
+
+        html.comfort-mode .hero-title {
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
+        }
+
+        html.comfort-mode .hero-subtitle {
+            font-size: clamp(1.15rem, 3.2vw, 1.7rem);
+        }
+
+        html.comfort-mode .benefit-detail-text h3 {
+            font-size: 1.7rem;
+        }
+
+        html.comfort-mode .tutorial-title {
+            font-size: 1.25rem;
+        }
+
+        html.comfort-mode .hotel-name {
+            font-size: 1.35rem;
+        }
+
+        html.comfort-mode .cta-title {
+            font-size: clamp(2rem, 4.5vw, 2.8rem);
+        }
+
+        html.comfort-mode .faq-question span:not(.icon) {
+            font-size: 1.15rem;
+        }
+
+        html.comfort-mode .cta-desc {
+            font-size: 1.12rem;
+        }
+
+        /* ── Small text / labels ── */
+        html.comfort-mode nav a {
+            font-size: 0.9rem;
+        }
+
+        html.comfort-mode .tier-nav-name {
+            font-size: 1.2rem;
+        }
+
+        html.comfort-mode .tier-nav-cn {
+            font-size: 0.95rem;
+        }
+
+        html.comfort-mode .tier-nav-price {
+            font-size: 0.85rem;
+        }
+
+        html.comfort-mode .hero-badge {
+            font-size: 0.82rem;
+            padding: 14px 34px;
+        }
+
+        html.comfort-mode .pin-toggle-label {
+            font-size: 1rem;
+        }
+
+        html.comfort-mode .tier-badge {
+            font-size: 0.78rem;
+            padding: 8px 16px;
+        }
+
+        html.comfort-mode .choice-badge {
+            font-size: 0.82rem;
+            padding: 6px 14px;
+        }
+
+        html.comfort-mode .footer-col a,
+        html.comfort-mode .footer-desc {
+            font-size: 0.95rem;
+        }
+
+        html.comfort-mode .footer-copy {
+            font-size: 0.85rem;
+        }
+
+        html.comfort-mode .footer-bottom-links a {
+            font-size: 0.85rem;
+        }
+
+        html.comfort-mode .logo-sub {
+            font-size: 0.68rem;
+        }
+
+        html.comfort-mode .hotel-brand {
+            font-size: 0.82rem;
+        }
+
+        html.comfort-mode .hotel-info-item {
+            font-size: 0.95rem;
+        }
+
+        /* ── Comparison table ── */
+        html.comfort-mode .comparison-table th,
+        html.comfort-mode .comparison-table td {
+            padding: 24px 18px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        html.comfort-mode .comparison-table th:first-child,
+        html.comfort-mode .comparison-table td:first-child {
+            padding-left: 35px;
+            font-size: 0.95rem;
+        }
+
+        html.comfort-mode .comparison-table tr.section-row td {
+            font-size: 1rem;
+            padding: 18px 24px;
+        }
+
+        html.comfort-mode .tier-col-header .name {
+            font-size: 1.1rem;
+        }
+
+        html.comfort-mode .tier-col-header .price {
+            font-size: 0.78rem;
+        }
+
+        html.comfort-mode .check-icon {
+            font-size: 1.3rem;
+        }
+
+        /* ── Transfer table ── */
+        html.comfort-mode .transfer-table th,
+        html.comfort-mode .transfer-table td {
+            padding: 22px 28px;
+            font-size: 0.95rem;
+        }
+
+        html.comfort-mode .transfer-table th {
+            font-size: 0.95rem;
+        }
+
+        html.comfort-mode .transfer-tab,
+        html.comfort-mode .benefit-tab {
+            font-size: 0.95rem;
+            padding: 16px 34px;
+        }
+
+        /* ── Calculator / Form ── */
+        html.comfort-mode .calc-form-group label {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        html.comfort-mode .calc-form-group select,
+        html.comfort-mode .calc-form-group input {
+            min-height: 52px;
+            font-size: 18px;
+            padding: 12px 14px;
+            border-radius: 12px;
+        }
+
+        html.comfort-mode .calc-btn {
+            padding: 18px;
+            font-size: 1.1rem;
+        }
+
+        html.comfort-mode .calc-result-label {
+            font-size: 0.95rem;
+        }
+
+        html.comfort-mode .calc-result-value {
+            font-size: 1.05rem;
+        }
+
+        html.comfort-mode .calc-result-highlight .label {
+            font-size: 1rem;
+        }
+
+        html.comfort-mode .calc-result-highlight .value {
+            font-size: 2.5rem;
+        }
+
+        html.comfort-mode .calc-section-title {
+            font-size: 1rem;
+        }
+
+        html.comfort-mode .calc-inline-toggle .text {
+            font-size: 0.95rem;
+        }
+
+        html.comfort-mode .calc-inline-toggle .hint {
+            font-size: 0.85rem;
+        }
+
+        html.comfort-mode .calc-form-title {
+            font-size: 1.4rem;
+        }
+
+        /* ── Spacing ── */
+        html.comfort-mode .container {
+            padding: 0 50px;
+        }
+
+        html.comfort-mode .section-header {
+            margin-bottom: 90px;
+        }
+
+        html.comfort-mode .tutorial-step {
+            padding: 35px;
+        }
+
+        html.comfort-mode .tip-box,
+        html.comfort-mode .warning-box {
+            padding: 30px;
+        }
+
+        html.comfort-mode .hotel-card {
+            padding: 40px;
+        }
+
+        html.comfort-mode .benefit-detail-header {
+            padding: 45px 55px;
+        }
+
+        html.comfort-mode .benefit-detail-body {
+            padding: 55px;
+        }
+
+        html.comfort-mode .faq-question {
+            padding: 30px 0;
+        }
+
+        html.comfort-mode .faq-answer-content {
+            padding: 0 0 30px 0;
+        }
+
+        /* ── Disclaimer modal ── */
+        html.comfort-mode .disclaimer-content {
+            font-size: 1.08rem;
+            line-height: 2.1;
+        }
+
+        html.comfort-mode .disclaimer-btn {
+            padding: 18px 55px;
+            font-size: 1rem;
+        }
+
+        html.comfort-mode .disclaimer-download {
+            font-size: 1rem;
+            padding: 16px 30px;
+        }
+
+        /* ── Simplified animations ── */
+        html.comfort-mode .particle {
+            display: none;
+        }
+
+        html.comfort-mode .hero::before {
+            animation: none;
+            opacity: 0.6;
+        }
+
+        html.comfort-mode .fade-in {
+            transition-duration: 0.4s;
+        }
+
+        html.comfort-mode .tier-nav-card:hover {
+            transform: translateY(-5px);
+        }
+
+        html.comfort-mode .hotel-card:hover {
+            transform: translateY(-4px);
+        }
+
+        html.comfort-mode .scroll-line {
+            animation: none;
+            opacity: 0.6;
+        }
+
+        /* ── Mobile comfort overrides (768px) ── */
+        @media (max-width: 768px) {
+            html.comfort-mode .container {
+                padding: 0 24px;
+            }
+
+            html.comfort-mode .section-title {
+                font-size: 1.7rem;
+            }
+
+            html.comfort-mode .section-desc,
+            html.comfort-mode .notice-item p,
+            html.comfort-mode .tip-box p,
+            html.comfort-mode .warning-box p,
+            html.comfort-mode .tutorial-step p,
+            html.comfort-mode .faq-answer-content {
+                font-size: 1rem;
+            }
+
+            html.comfort-mode .hero-title {
+                font-size: clamp(2.2rem, 11vw, 3.3rem);
+            }
+
+            html.comfort-mode .faq-question span:not(.icon) {
+                font-size: 1.05rem;
+            }
+
+            html.comfort-mode .comparison-table th,
+            html.comfort-mode .comparison-table td {
+                padding: 18px 14px;
+                font-size: 0.9rem;
+            }
+
+            html.comfort-mode .transfer-table th,
+            html.comfort-mode .transfer-table td {
+                padding: 18px 16px;
+                font-size: 0.9rem;
+            }
+
+            html.comfort-mode .benefit-tab {
+                padding: 14px 22px;
+                font-size: 0.88rem;
+            }
+
+            html.comfort-mode .hotel-card {
+                padding: 28px;
+            }
+
+            html.comfort-mode .benefit-detail-header {
+                padding: 28px 24px;
+            }
+
+            html.comfort-mode .benefit-detail-body {
+                padding: 28px 24px;
+            }
+
+            html.comfort-mode .choice-notice .notice-text {
+                font-size: 0.92rem;
+            }
+
+            html.comfort-mode .hotel-info-item {
+                font-size: 0.92rem;
+                padding: 14px 0;
+            }
+
+            html.comfort-mode .section-header {
+                margin-bottom: 50px;
+            }
+
+            html.comfort-mode .tutorial-step {
+                padding: 28px 22px;
+            }
+        }
+
+        /* ── Mobile comfort overrides (480px) ── */
+        @media (max-width: 480px) {
+            html.comfort-mode .container {
+                padding: 0 20px;
+            }
+
+            html.comfort-mode .hero-title {
+                font-size: 2rem;
+            }
+
+            html.comfort-mode .section-title {
+                font-size: 1.5rem;
+            }
+
+            html.comfort-mode .faq-question span:not(.icon) {
+                font-size: 1rem;
+            }
+
+            html.comfort-mode .calc-form-group select,
+            html.comfort-mode .calc-form-group input {
+                min-height: 50px;
+                font-size: 17px;
+            }
+        }
+
         ::-webkit-scrollbar {
             width: 8px;
         }

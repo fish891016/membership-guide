@@ -109,6 +109,40 @@
             wrapper.classList.toggle('pinned');
         }
 
+        // ── Comfort Reading Mode (舒適閱讀模式) ──
+        function toggleComfortMode() {
+            var html = document.documentElement;
+            var toggle = document.getElementById('comfortToggle');
+            var isActive = html.classList.contains('comfort-mode');
+
+            html.classList.add('comfort-transitioning');
+
+            setTimeout(function() {
+                if (isActive) {
+                    html.classList.remove('comfort-mode');
+                    localStorage.removeItem('comfortMode');
+                    if (toggle) toggle.setAttribute('aria-pressed', 'false');
+                } else {
+                    html.classList.add('comfort-mode');
+                    localStorage.setItem('comfortMode', 'on');
+                    if (toggle) toggle.setAttribute('aria-pressed', 'true');
+                }
+
+                setTimeout(function() {
+                    html.classList.remove('comfort-transitioning');
+                }, 150);
+            }, 150);
+        }
+
+        // Restore preference on page load
+        (function restoreComfortMode() {
+            if (localStorage.getItem('comfortMode') === 'on') {
+                document.documentElement.classList.add('comfort-mode');
+                var toggle = document.getElementById('comfortToggle');
+                if (toggle) toggle.setAttribute('aria-pressed', 'true');
+            }
+        })();
+
         function createParticles() {
             const container = document.getElementById('particles');
             for (let i = 0; i < 30; i++) {
@@ -585,7 +619,7 @@
 
             const preTaxPriceUSD = (roomPrice / (1 + taxRate)) / exchangeRate;
             const basePoints = Math.floor(preTaxPriceUSD * 10) * nights;
-            const tierBonusRate = tierBonusRates[marriottTier];
+            const tierBonusRate = tierBonusRates[marriottTier] ?? 0;
             const tierPoints = Math.floor(basePoints * tierBonusRate);
             
             let promoPoints = 0;
