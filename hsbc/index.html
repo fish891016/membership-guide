@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0B0B0D">
+    <meta name="description" content="透過環哩匯通路申辦滙豐旅人卡，享最高 NT$8,888 獨家折抵金。16 家航空 1:1 轉換、12 家即時入帳。線上試算你能獲得的哩程與回饋。">
+    <meta property="og:title" content="滙豐旅人卡｜環哩匯通路獨家方案">
+    <meta property="og:description" content="最高享 NT$8,888 環哩匯折抵金。16 家航空 1:1 轉換，通路限定 2026/4/9–4/30。">
+    <meta property="og:type" content="website">
+    <title>滙豐旅人卡｜環哩匯通路獨家方案｜哩程試算器</title>
+    <link rel="icon" href="TDC.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<div class="wrap">
+
+    <!-- ======== 1. HERO ======== -->
+    <header class="hero">
+        <div class="hero-trust">HSBC 滙豐銀行 × 環哩匯 官方合作通路</div>
+        <h1>申辦旅人卡<br>最高享</h1>
+        <div class="hero-amount" aria-label="最高新台幣八千八百八十八元">NT$8,888</div>
+        <p class="hero-desc">環哩匯通路獨家折抵金</p>
+        <a href="#calculator" class="btn-cta">立即試算你能拿多少 →</a>
+        <div class="hero-meta">通路限定 2026/4/9 – 4/30</div>
+    </header>
+
+    <!-- ======== PROOF STRIP ======== -->
+    <div class="proof-strip" role="list" aria-label="核心優勢">
+        <div class="proof-item" role="listitem">
+            <span class="proof-val">NT$10 = 1 哩</span>
+            <span class="proof-label">海外消費最優回饋</span>
+        </div>
+        <div class="proof-sep" aria-hidden="true"></div>
+        <div class="proof-item" role="listitem">
+            <span class="proof-val">16 家航空 1:1</span>
+            <span class="proof-label">即時轉換不打折</span>
+        </div>
+        <div class="proof-sep" aria-hidden="true"></div>
+        <div class="proof-item" role="listitem">
+            <span class="proof-val">最高 NT$8,888</span>
+            <span class="proof-label">通路限定折抵金</span>
+        </div>
+    </div>
+
+    <!-- ======== 2. CALCULATOR ======== -->
+    <section class="section stage-calc" id="calculator">
+        <div class="section-label">Miles Calculator</div>
+        <div class="section-title">哩程試算器</div>
+        <div class="section-desc">選擇卡片與消費金額，即時計算你的回饋</div>
+
+        <div class="cards-row" role="radiogroup" aria-label="選擇信用卡">
+            <div class="crd" id="c-infinite" role="button" tabindex="0" aria-label="選擇滙豐旅人無限卡" onclick="pickCard('infinite')">
+                <div class="crd-media">
+                    <span class="badge-featured">主推</span>
+                    <img src="無限卡.png" alt="滙豐旅人無限卡卡面" width="300" height="190">
+                </div>
+                <div class="crd-info">
+                    <div class="crd-name">滙豐旅人無限卡</div>
+                    <div class="crd-fee">年費 NT$8,000</div>
+                    <div class="crd-rate">國內 $18 = 1哩 ｜ 海外 $10 = 1哩</div>
+                    <div class="crd-perks">接送4次 / 貴賓室8次 / 停車60天</div>
+                </div>
+            </div>
+            <div class="crd" id="c-signature" role="button" tabindex="0" aria-label="選擇滙豐旅人御璽卡" onclick="pickCard('signature')">
+                <div class="crd-media">
+                    <img src="御璽卡.png" alt="滙豐旅人御璽卡卡面" width="190" height="300">
+                </div>
+                <div class="crd-info">
+                    <div class="crd-name">滙豐旅人御璽卡</div>
+                    <div class="crd-fee">年費 NT$2,500</div>
+                    <div class="crd-rate">國內 $18 = 1哩 ｜ 海外 $15 = 1哩</div>
+                    <div class="crd-perks">接送2次 / 貴賓室2次 / 停車45天</div>
+                </div>
+            </div>
+            <div class="crd" id="c-travelone" role="button" tabindex="0" aria-label="選擇滙豐旅人輕旅卡" onclick="pickCard('travelone')">
+                <div class="crd-media">
+                    <img src="輕旅卡.png" alt="滙豐旅人輕旅卡卡面" width="190" height="300">
+                </div>
+                <div class="crd-info">
+                    <div class="crd-name">滙豐旅人輕旅卡</div>
+                    <div class="crd-fee">非紙本帳單免年費</div>
+                    <div class="crd-rate">所有消費 $20 = 1哩（不分國內外）</div>
+                    <div class="crd-perks">接送1次* / 停車30天</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="type-label" id="type-label">申辦類型</div>
+        <div class="type-row" role="radiogroup" aria-labelledby="type-label">
+            <div class="topt" id="t-premier" role="button" tabindex="0" onclick="pickType('premier')">
+                <div class="t-lbl">新辦卓越理財 + 卡</div>
+                <div class="t-sub">開立卓越理財帳戶 + 辦信用卡</div>
+                <div class="t-val" id="tv-premier"></div>
+            </div>
+            <div class="topt" id="t-newcard" role="button" tabindex="0" onclick="pickType('newcard')">
+                <div class="t-lbl">純新辦卡</div>
+                <div class="t-sub">僅申辦信用卡</div>
+                <div class="t-val" id="tv-newcard"></div>
+            </div>
+        </div>
+
+        <div class="input-panel" id="inp-panel" style="display:none">
+            <div class="panel-title">預估消費金額</div>
+            <div class="inp-grid" id="inp-grid">
+                <div class="inp-grp" id="g-dom">
+                    <label for="i-dom">國內消費（年）</label>
+                    <div class="inp-wrap"><span class="inp-pre">NT$</span><input type="text" id="i-dom" placeholder="100000" inputmode="numeric" pattern="[0-9]*" oninput="calc()"></div>
+                </div>
+                <div class="inp-grp" id="g-ovs">
+                    <label for="i-ovs">海外消費（年）</label>
+                    <div class="inp-wrap"><span class="inp-pre">NT$</span><input type="text" id="i-ovs" placeholder="200000" inputmode="numeric" pattern="[0-9]*" oninput="calc()"></div>
+                </div>
+                <div class="inp-grp" id="g-tot" style="display:none">
+                    <label for="i-tot">總消費金額（年，不分國內外）</label>
+                    <div class="inp-wrap"><span class="inp-pre">NT$</span><input type="text" id="i-tot" placeholder="150000" inputmode="numeric" pattern="[0-9]*" oninput="calc()"></div>
+                </div>
+            </div>
+            <div class="chk-row">
+                <input type="checkbox" id="chk-auto" onchange="calc()">
+                <label for="chk-auto">綁定銀行帳戶自動扣繳卡費</label>
+                <span class="chk-bonus">+1,000 積分</span>
+            </div>
+        </div>
+
+        <div class="results" id="results" aria-live="polite">
+            <div class="res-hero">
+                <div class="lbl">預估可獲得總哩程</div>
+                <div class="miles" id="r-miles">0</div>
+                <div class="unit">旅遊積分（哩程）</div>
+                <div class="cash-tag">通路獨家折抵金：<strong id="r-cash">NT$0</strong></div>
+            </div>
+            <div class="res-break">
+                <div class="rb-title">哩程明細</div>
+                <div id="r-bk"></div>
+            </div>
+            <div class="roi-row">
+                <div class="roi-box"><div class="roi-l">實際年費成本</div><div class="roi-v" id="rv-fee">–</div></div>
+                <div class="roi-box"><div class="roi-l">每哩成本</div><div class="roi-v gld" id="rv-cpm">–</div></div>
+                <div class="roi-box"><div class="roi-l">年費回本海外消費</div><div class="roi-v grn" id="rv-be">–</div></div>
+            </div>
+            <div class="res-cta">
+                <a href="#apply" class="btn-cta" aria-label="前往申辦滙豐旅人卡">立即申辦 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 3. DESTINATIONS ======== -->
+    <section class="section" id="dest-sec" style="display:none">
+        <div class="section-label">Destinations</div>
+        <div class="section-title">你的哩程能飛去哪？</div>
+        <div class="section-desc">根據試算結果，看看哪些目的地已解鎖</div>
+        <div class="dest-grid" id="dest-grid"></div>
+        <p class="dest-note" style="text-align:center;font-size:0.78rem;color:var(--text-3);margin-top:14px;">* 所需哩程為參考值，實際兌換依各航空公司哩程計畫公告為準</p>
+    </section>
+
+    <!-- ======== 4. CHANNEL COMPARE ======== -->
+    <section class="section reveal">
+        <div class="section-label">Channel Exclusive</div>
+        <div class="section-title">為什麼要透過環哩匯申辦？</div>
+        <div class="section-desc">同一張卡，不同通路回饋大不同</div>
+        <div class="compare-grid">
+            <div class="cmp-card dim">
+                <span class="cmp-badge">一般公開方案</span>
+                <h3>HSBC 官網 / 臨櫃申辦</h3>
+                <ul class="cmp-list">
+                    <li><span class="ck y" aria-hidden="true">✓</span> 首刷禮旅遊積分</li>
+                    <li><span class="ck y" aria-hidden="true">✓</span> 消費累積哩程</li>
+                    <li><span class="ck n" aria-hidden="true">✗</span> <span style="color:var(--text-3)">無環哩匯折抵金</span></li>
+                    <li><span class="ck n" aria-hidden="true">✗</span> <span style="color:var(--text-3)">無通路加碼</span></li>
+                </ul>
+            </div>
+            <div class="cmp-card lit">
+                <span class="cmp-badge">環哩匯通路專屬</span>
+                <h3>透過環哩匯申辦</h3>
+                <ul class="cmp-list">
+                    <li><span class="ck y" aria-hidden="true">✓</span> 首刷禮旅遊積分（同官方）</li>
+                    <li><span class="ck y" aria-hidden="true">✓</span> 消費累積哩程（同官方）</li>
+                    <li><span class="ck y" aria-hidden="true">✓</span> <strong>環哩匯折抵金</strong> <span class="tag-ex">通路獨家</span></li>
+                    <li><span class="ck y" aria-hidden="true">✓</span> 門檻可一併計算</li>
+                </ul>
+            </div>
+        </div>
+        <div class="value-prop">
+            <div class="pre">透過環哩匯申辦，額外享</div>
+            <div class="big">最高 NT$8,888 環哩匯折抵金</div>
+            <div class="value-chips">
+                <span>無限卡 <strong>$8,888</strong></span>
+                <span>御璽卡 <strong>$3,388</strong></span>
+                <span>輕旅卡 <strong>$1,388</strong></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider-accent" aria-hidden="true"></div>
+
+    <!-- ======== 5. COMPETITOR COMPARE ======== -->
+    <section class="section reveal">
+        <div class="section-label">Comparison</div>
+        <div class="section-title">HSBC 旅人卡 vs 市場競品</div>
+        <div class="section-desc">同級年費，HSBC 在關鍵指標全面勝出</div>
+        <div class="comp-wrapper" tabindex="0" role="region" aria-label="競品比較表，可左右滑動">
+            <table class="comp-table">
+                <thead><tr>
+                    <th></th>
+                    <th class="hl">HSBC 旅人御璽卡</th>
+                    <th>星展飛行世界商務卡</th>
+                    <th>台新國泰翱翔鈦金卡</th>
+                    <th>國泰長榮航空無限卡</th>
+                </tr></thead>
+                <tbody>
+                    <tr><td class="mlbl">年費</td><td class="hl win">NT$2,500</td><td>NT$3,600</td><td>NT$2,400</td><td>NT$2,400</td></tr>
+                    <tr><td class="mlbl">國內回饋</td><td class="hl win">$18 = 1 哩</td><td>$20 = 1 哩</td><td class="lose">$25 = 1 哩</td><td class="lose">$22 = 1 哩</td></tr>
+                    <tr><td class="mlbl">海外回饋</td><td class="hl win">$15 = 1 哩</td><td>$15 = 1 哩</td><td class="lose">$25 = 1 哩</td><td class="lose">$22 = 1 哩</td></tr>
+                    <tr><td class="mlbl">合作航空</td><td class="hl win">16 家</td><td>4 家</td><td class="lose">1 家</td><td class="lose">1 家</td></tr>
+                    <tr><td class="mlbl">轉換比例</td><td class="hl win">全部 1:1</td><td>華航 2:1<br>其餘 1:1</td><td>亞萬 1:1</td><td>長榮 1:1</td></tr>
+                    <tr><td class="mlbl">即時入帳</td><td class="hl win">12 家即時</td><td class="lose">批次處理</td><td class="lose">帳單結帳後</td><td class="lose">帳單結帳後</td></tr>
+                    <tr><td class="mlbl">Agoda</td><td class="hl win">87 折</td><td>88 折</td><td class="lose">無</td><td class="lose">無</td></tr>
+                    <tr><td class="mlbl">機場接送/貴賓室</td><td class="hl">2次 / 2次</td><td>無 / 2次</td><td>2次 / 2次</td><td>2次 / 無</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="divider-accent" aria-hidden="true"></div>
+
+    <!-- ======== 6. CARD DETAILS ======== -->
+    <section class="section reveal">
+        <div class="section-label">Benefits</div>
+        <div class="section-title">三卡完整權益比較</div>
+        <div class="section-desc">展開查看各卡詳細權益</div>
+        <div class="acc" id="a-inf">
+            <div class="acc-hd" role="button" tabindex="0" aria-expanded="false" onclick="togAcc('a-inf')"><h3>滙豐旅人無限卡 Visa Infinite</h3><span class="arr" aria-hidden="true">▼</span></div>
+            <div class="acc-bd"><div class="acc-inner"><div class="dtl-grid">
+                <div class="dtl"><div class="dl">年費</div><div class="dv">NT$8,000</div></div>
+                <div class="dtl"><div class="dl">國內消費</div><div class="dv">NT$18 = 1 哩</div></div>
+                <div class="dtl"><div class="dl">海外消費</div><div class="dv">NT$10 = 1 哩</div></div>
+                <div class="dtl"><div class="dl">首刷禮</div><div class="dv">8,000 旅遊積分</div></div>
+                <div class="dtl"><div class="dl">續卡禮</div><div class="dv">8,000 旅遊積分</div></div>
+                <div class="dtl"><div class="dl">機場接送</div><div class="dv">4 次 / 年</div></div>
+                <div class="dtl"><div class="dl">機場貴賓室</div><div class="dv">8 次 / 年</div></div>
+                <div class="dtl"><div class="dl">機場停車</div><div class="dv">60 天 / 年</div></div>
+                <div class="dtl"><div class="dl">Agoda 全球訂房</div><div class="dv">最高 87 折</div></div>
+                <div class="dtl"><div class="dl">飯店美食優惠</div><div class="dv">最優 75 折</div></div>
+                <div class="dtl"><div class="dl">旅遊保險</div><div class="dv">NT$2,000萬意外 / NT$10萬醫療 / NT$6萬不便險</div></div>
+                <div class="dtl"><div class="dl">即時入哩</div><div class="dv">12 家航空</div></div>
+            </div></div></div>
+        </div>
+        <div class="acc" id="a-sig">
+            <div class="acc-hd" role="button" tabindex="0" aria-expanded="false" onclick="togAcc('a-sig')"><h3>滙豐旅人御璽卡 TravelOne Signature</h3><span class="arr" aria-hidden="true">▼</span></div>
+            <div class="acc-bd"><div class="acc-inner"><div class="dtl-grid">
+                <div class="dtl"><div class="dl">年費</div><div class="dv">NT$2,500</div></div>
+                <div class="dtl"><div class="dl">國內消費</div><div class="dv">NT$18 = 1 哩</div></div>
+                <div class="dtl"><div class="dl">海外消費</div><div class="dv">NT$15 = 1 哩</div></div>
+                <div class="dtl"><div class="dl">首刷禮</div><div class="dv">3,000 旅遊積分</div></div>
+                <div class="dtl"><div class="dl">續卡禮</div><div class="dv">3,000 旅遊積分</div></div>
+                <div class="dtl"><div class="dl">機場接送</div><div class="dv">2 次 / 年</div></div>
+                <div class="dtl"><div class="dl">機場貴賓室</div><div class="dv">2 次 / 年</div></div>
+                <div class="dtl"><div class="dl">機場停車</div><div class="dv">45 天 / 年</div></div>
+                <div class="dtl"><div class="dl">Agoda 全球訂房</div><div class="dv">最高 87 折</div></div>
+                <div class="dtl"><div class="dl">旅遊保險</div><div class="dv">NT$2,000萬意外 / NT$10萬醫療 / NT$6萬不便險</div></div>
+                <div class="dtl"><div class="dl">即時入哩</div><div class="dv">12 家航空</div></div>
+            </div></div></div>
+        </div>
+        <div class="acc" id="a-tvo">
+            <div class="acc-hd" role="button" tabindex="0" aria-expanded="false" onclick="togAcc('a-tvo')"><h3>滙豐旅人輕旅卡 TravelOne</h3><span class="arr" aria-hidden="true">▼</span></div>
+            <div class="acc-bd"><div class="acc-inner"><div class="dtl-grid">
+                <div class="dtl"><div class="dl">年費</div><div class="dv">非紙本帳單免年費</div></div>
+                <div class="dtl"><div class="dl">消費回饋</div><div class="dv">NT$20 = 1 哩（不分國內外）</div></div>
+                <div class="dtl"><div class="dl">首刷禮</div><div class="dv">1,000 旅遊積分</div></div>
+                <div class="dtl"><div class="dl">續卡禮</div><div class="dv">無</div></div>
+                <div class="dtl"><div class="dl">機場接送</div><div class="dv">1 次 / 年</div></div>
+                <div class="dtl"><div class="dl">機場貴賓室</div><div class="dv">無</div></div>
+                <div class="dtl"><div class="dl">機場停車</div><div class="dv">30 天 / 年</div></div>
+                <div class="dtl"><div class="dl">Agoda 全球訂房</div><div class="dv">最高 87 折</div></div>
+                <div class="dtl"><div class="dl">旅遊保險</div><div class="dv">NT$2,000萬意外 / NT$10萬醫療 / NT$6萬不便險</div></div>
+                <div class="dtl"><div class="dl">即時入哩</div><div class="dv">12 家航空</div></div>
+            </div></div></div>
+        </div>
+    </section>
+
+    <!-- ======== 7. PARTNERS ======== -->
+    <section class="section reveal">
+        <div class="section-label">Redemption Partners</div>
+        <div class="section-title">19 大兌換夥伴</div>
+        <div class="section-desc">16 家航空 + 3 大飯店集團，全部 1:1 轉換</div>
+        <div class="ptr-grid">
+            <div class="ptr"><span class="inst">即時</span><span class="pn">亞洲航空</span><span class="pe">Air Asia</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">哥倫比亞航空</span><span class="pe">Avianca</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">加拿大航空</span><span class="pe">Air Canada</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">阿聯酋航空</span><span class="pe">Emirates</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">長榮航空</span><span class="pe">Eva Air</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">法荷航集團</span><span class="pe">Air France KLM</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">卡達航空</span><span class="pe">Qatar Airways</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">澳洲航空</span><span class="pe">Qantas</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">土耳其航空</span><span class="pe">Turkish Airlines</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">聯合航空</span><span class="pe">United Airlines</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">越南航空</span><span class="pe">Vietnam Airlines</span></div>
+            <div class="ptr"><span class="inst">即時</span><span class="pn">亞洲萬里通</span><span class="pe">Asia Miles</span></div>
+            <div class="ptr"><span class="pn">中華航空</span><span class="pe">China Airlines</span></div>
+            <div class="ptr"><span class="pn">新加坡航空</span><span class="pe">Singapore Airlines</span></div>
+            <div class="ptr"><span class="pn">日本航空</span><span class="pe">JAL</span></div>
+            <div class="ptr"><span class="pn">海南航空</span><span class="pe">Hainan Airlines</span></div>
+            <div class="ptr htl"><span class="pn">雅高酒店集團</span><span class="pe">Accor Hotel</span></div>
+            <div class="ptr htl"><span class="pn">洲際飯店集團</span><span class="pe">IHG</span></div>
+            <div class="ptr htl"><span class="pn">萬豪酒店集團</span><span class="pe">Marriott Bonvoy</span></div>
+        </div>
+        <div class="ptr-note">兌換以每 500 點為單位，最低門檻 3,000 點 ｜ 即時入帳不含華航、新航、日航、海南（需 7–14 工作天）</div>
+    </section>
+
+    <div class="divider-accent" aria-hidden="true"></div>
+
+    <!-- ======== 8. QUIZ ======== -->
+    <section class="section reveal" id="recommender">
+        <div class="section-label">Card Finder</div>
+        <div class="section-title">不確定哪張適合你？</div>
+        <div class="section-desc">回答 3 個問題，獲得個人化推薦</div>
+
+        <div class="recommender">
+            <div class="quiz-step active" id="qs1">
+                <div class="quiz-indicator">Step 1 / 3</div>
+                <div class="quiz-q">你的年海外消費大約多少？</div>
+                <div class="quiz-opts">
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(1,'low')"><span class="ico">💳</span><span class="lbl">10 萬以下</span><span class="sub">偶爾出國消費</span></div>
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(1,'mid')"><span class="ico">✈️</span><span class="lbl">10–30 萬</span><span class="sub">經常海外消費</span></div>
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(1,'high')"><span class="ico">🌏</span><span class="lbl">30 萬以上</span><span class="sub">重度海外消費</span></div>
+                </div>
+            </div>
+            <div class="quiz-step" id="qs2">
+                <div class="quiz-indicator">Step 2 / 3</div>
+                <div class="quiz-q">你最常飛的目的地？</div>
+                <div class="quiz-opts">
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(2,'ne')"><span class="ico">🇯🇵</span><span class="lbl">日本 / 韓國</span></div>
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(2,'se')"><span class="ico">🇹🇭</span><span class="lbl">東南亞</span></div>
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(2,'lng')"><span class="ico">🇬🇧</span><span class="lbl">歐美長途</span></div>
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(2,'all')"><span class="ico">🌍</span><span class="lbl">各地都飛</span></div>
+                </div>
+            </div>
+            <div class="quiz-step" id="qs3">
+                <div class="quiz-indicator">Step 3 / 3</div>
+                <div class="quiz-q">你是否為匯豐卓越理財客戶？</div>
+                <div class="quiz-opts">
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(3,'yes')"><span class="ico">🏦</span><span class="lbl">是</span><span class="sub">已有卓越理財帳戶</span></div>
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(3,'willing')"><span class="ico">📋</span><span class="lbl">否，但願意開戶</span><span class="sub">享更高回饋</span></div>
+                    <div class="quiz-opt" role="button" tabindex="0" onclick="answerQuiz(3,'no')"><span class="ico">💳</span><span class="lbl">否，僅辦卡</span><span class="sub">純新辦信用卡</span></div>
+                </div>
+            </div>
+
+            <div class="rec-result" id="rec-result">
+                <div class="rec-tag">最適合你的卡片</div>
+                <div class="rec-name" id="rec-name"></div>
+                <ul class="rec-list" id="rec-list"></ul>
+                <button class="btn-primary" onclick="applyRec()">查看你能賺多少哩程 ↓</button><br>
+                <button class="btn-ghost" onclick="resetQuiz()" style="margin-top:10px">重新選擇</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 9. STRATEGY ======== -->
+    <section class="section reveal">
+        <div class="section-label">How To Apply</div>
+        <div class="section-title">申辦攻略</div>
+        <div class="section-desc">5 步驟最大化你的回饋</div>
+        <div class="strat-row">
+            <div class="stp"><div class="sn">1</div><div class="st">選擇卡片</div><div class="sd">依消費習慣選擇最適卡別</div></div>
+            <div class="stp"><div class="sn">2</div><div class="st">評估開戶</div><div class="sd">開卓越理財帳戶折抵金更高</div></div>
+            <div class="stp"><div class="sn">3</div><div class="st">通路申辦</div><div class="sd">透過環哩匯專屬連結申請</div></div>
+            <div class="stp"><div class="sn">4</div><div class="st">達成門檻</div><div class="sd">核卡後 45 天內完成刷卡</div></div>
+            <div class="stp"><div class="sn">5</div><div class="st">轉換哩程</div><div class="sd">積分 1:1 轉換偏好航空</div></div>
+        </div>
+    </section>
+
+    <!-- ======== 10. FAQ ======== -->
+    <section class="section reveal">
+        <div class="section-label">FAQ</div>
+        <div class="section-title">常見問題</div>
+        <div class="section-desc" style="margin-bottom:24px">&nbsp;</div>
+        <div class="fq"><div class="fq-q" role="button" tabindex="0" aria-expanded="false" onclick="togFaq(this)">什麼是「環哩匯折抵金」？和哩程有什麼不同？<span class="arr" aria-hidden="true">▼</span></div><div class="fq-a"><div class="fq-a-in">環哩匯折抵金是透過環哩匯通路申辦的<strong>獨家現金回饋</strong>，會直接折抵信用卡帳單，和旅遊積分（哩程）分開計算。一般公開方案只有旅遊積分，沒有這筆折抵金。</div></div></div>
+        <div class="fq"><div class="fq-q" role="button" tabindex="0" aria-expanded="false" onclick="togFaq(this)">刷卡門檻和首刷禮門檻可以一起算嗎？<span class="arr" aria-hidden="true">▼</span></div><div class="fq-a"><div class="fq-a-in">可以。消費好禮的刷卡門檻與通路特案的首刷禮門檻可一併計算，同一筆消費可同時滿足兩個門檻條件。</div></div></div>
+        <div class="fq"><div class="fq-q" role="button" tabindex="0" aria-expanded="false" onclick="togFaq(this)">旅遊積分如何轉換為航空哩程？<span class="arr" aria-hidden="true">▼</span></div><div class="fq-a"><div class="fq-a-in">透過 HSBC 信用卡網路服務或行動 App 兌換。旅人卡以每 500 點為單位，最低門檻 3,000 點。12 家航空支援即時入帳，其餘 4 家（華航、新航、日航、海南）需 7–14 個工作天。全部 16 家航空皆 1:1 轉換。</div></div></div>
+        <div class="fq"><div class="fq-q" role="button" tabindex="0" aria-expanded="false" onclick="togFaq(this)">輕旅卡真的免年費嗎？<span class="arr" aria-hidden="true">▼</span></div><div class="fq-a"><div class="fq-a-in">選擇非紙本帳單即可免年費。若使用紙本帳單，年費 NT$2,000，但前一年消費達 NT$80,000 或 12 筆以上交易亦可免年費。</div></div></div>
+        <div class="fq"><div class="fq-q" role="button" tabindex="0" aria-expanded="false" onclick="togFaq(this)">「新辦卓越理財+卡」和「純新辦卡」差在哪？<span class="arr" aria-hidden="true">▼</span></div><div class="fq-a"><div class="fq-a-in">「新辦卓越理財+卡」同時開立匯豐卓越理財帳戶並辦卡，環哩匯折抵金較高（如無限卡 NT$8,888 vs 純辦卡 NT$4,000）。符合資格建議選此方案以獲最高回饋。</div></div></div>
+        <div class="fq"><div class="fq-q" role="button" tabindex="0" aria-expanded="false" onclick="togFaq(this)">活動期間和條件是什麼？<span class="arr" aria-hidden="true">▼</span></div><div class="fq-a"><div class="fq-a-in">活動期間 2026/4/9 ~ 4/30，須透過環哩匯通路線上申請，申請日後 45 天內完成核卡及指定條件。詳細條款以活動頁面公告為準。</div></div></div>
+        <div class="fq"><div class="fq-q" role="button" tabindex="0" aria-expanded="false" onclick="togFaq(this)">綁定自動扣繳的 1,000 積分怎麼拿？<span class="arr" aria-hidden="true">▼</span></div><div class="fq-a"><div class="fq-a-in">任何卡別綁定銀行帳戶自動扣繳信用卡費，即可額外獲得 1,000 旅遊積分，三張旅人卡皆適用。</div></div></div>
+    </section>
+
+    <!-- ======== 11. CTA ======== -->
+    <section class="section reveal" id="apply">
+        <div class="cta-sec">
+            <div class="ct-t">立即申辦滙豐旅人卡</div>
+            <div class="ct-s">透過環哩匯通路，享獨家折抵金回饋</div>
+            <div class="cta-btns">
+                <a href="https://www.ftctw.org/events/chun-ka-xin-jiu-hu-tong-xiang-quan-qiu-zui-qiang-hui-kui-te-an-fu-huo-hsbc-lu-ren-ka-zui-you1-25yuan-shuang-zhuan-li-e-w" target="_blank" rel="noopener" class="cta-a p">純辦卡 → 立即申辦</a>
+                <a href="https://www.ftctw.org/events/hu-ka-xin-jiu-hu-tong-xiang-quan-qiu-zui-qiang-hui-kui-te-an-fu-huo-hsbc-lu-ren-ka-zui-you1-25yuan-shuang-zhuan-li-e-wai" target="_blank" rel="noopener" class="cta-a s">開戶 + 辦卡 → 享更高回饋</a>
+            </div>
+            <div class="cta-dl">活動截止：2026/4/30 ｜ 申請日後 45 天內完成核卡及指定條件</div>
+            <div class="cta-countdown" id="countdown"></div>
+        </div>
+    </section>
+
+    <!-- ======== DISCLAIMER ======== -->
+    <div class="disc">
+        <strong>謹慎理財，信用至上</strong><br>
+        滙豐信用卡循環信用利率：5.68% ~ 15.00%；循環利率基準日為104年9月1日。每筆預借現金手續費為新臺幣100元 + 預借現金金額 × 3.5%。各項費用請洽本行網站查詢。<br><br>
+        本頁面為環哩匯通路特案資訊整理，詳細活動辦法、條款及注意事項以 HSBC 滙豐銀行及環哩匯官方公告為準。旅遊積分兌換比例、條件及限制請參閱滙豐銀行飛行優惠計劃頁及飯店計劃頁。
+    </div>
+
+    <footer><p>© 2026 環哩匯通路特案資訊頁 ｜ 本頁面非 HSBC 官方網站</p></footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
