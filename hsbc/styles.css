@@ -1213,7 +1213,117 @@ footer p { font-size: 0.82rem; color: var(--text-3); }
     .crd-media img { max-height: 120px; }
 }
 
+/* ============================================
+   COMFORT READING TOGGLE
+   ============================================ */
+.comfort-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-active);
+    border-radius: 24px;
+    color: var(--text-2);
+    font-size: 0.82rem;
+    font-family: inherit;
+    cursor: pointer;
+    z-index: 999;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    touch-action: manipulation;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    bottom: max(24px, env(safe-area-inset-bottom));
+}
+.comfort-toggle:hover {
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+}
+.comfort-toggle[aria-pressed="true"] {
+    background: rgba(196,162,101,0.12);
+    border-color: rgba(196,162,101,0.3);
+    color: var(--gold);
+}
+
+/* Comfort mode: scale up text, increase spacing */
+body.comfort {
+    font-size: 118%;
+    line-height: 2;
+}
+body.comfort .section { padding: 96px 0; }
+body.comfort .section-desc { margin-bottom: 56px; }
+body.comfort .fq-q { min-height: 60px; font-size: 1.05rem; }
+body.comfort .fq-a-in { font-size: 1.02rem; line-height: 2.1; }
+body.comfort .acc-hd { min-height: 60px; }
+body.comfort .acc-hd h3 { font-size: 1.02rem; }
+body.comfort .cmp-list li { font-size: 1rem; padding: 10px 0; }
+body.comfort .bk-label { font-size: 1rem; }
+body.comfort .bk-cond { font-size: 0.9rem; }
+body.comfort .roi-l { font-size: 0.9rem; }
+body.comfort .crd-info { padding: 24px 20px; }
+body.comfort .crd-name { font-size: 1.1rem; }
+body.comfort .crd-fee { font-size: 0.95rem; }
+body.comfort .crd-rate { font-size: 0.92rem; }
+body.comfort .ptr { font-size: 0.95rem; padding: 14px 16px; }
+body.comfort .disc { font-size: 0.9rem; }
+body.comfort .quiz-q { font-size: 1.2rem; }
+body.comfort .quiz-opt .lbl { font-size: 1.02rem; }
+
+/* ============================================
+   SUBTLE VISUAL EFFECTS
+   ============================================ */
+/* Scroll reveal stagger */
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+
+/* Card hover lift micro-shadow */
+.crd { transition: transform 0.3s ease, box-shadow 0.4s ease, border-color 0.3s ease; }
+
+/* Results hero number subtle pulse on appear */
+.results.show .res-hero .miles {
+    animation: milesFadeIn 0.8s cubic-bezier(.22,1,.36,1);
+}
+@keyframes milesFadeIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Destination unlock subtle scale */
+.dst.ok { animation: destUnlock 0.5s ease; }
+@keyframes destUnlock {
+    0% { transform: scale(0.96); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* CTA button subtle pulse on hover */
+.btn-cta:hover { box-shadow: 0 8px 28px rgba(219,0,17,0.18); }
+
+/* Gold accent line subtle fade on results */
+.res-hero::before { transition: opacity 0.6s ease; }
+.results.show .res-hero::before { opacity: 0.5; }
+
+/* Value prop number gentle emphasis */
+.value-prop .big { transition: color 0.3s ease; }
+
+/* Proof strip items subtle hover */
+.proof-item { transition: opacity 0.2s; }
+.proof-strip:hover .proof-item { opacity: 0.7; }
+.proof-strip .proof-item:hover { opacity: 1; }
+
+/* Progress bar animated fill */
+.bar-fill { transition: width 1.2s cubic-bezier(.22,1,.36,1); }
+
 /* ---- iOS / Safari ---- */
 @supports (-webkit-touch-callout: none) {
     body { min-height: -webkit-fill-available; }
+}
+
+/* Comfort toggle mobile position */
+@media (max-width: 480px) {
+    .comfort-toggle { bottom: max(16px, env(safe-area-inset-bottom)); right: 16px; padding: 8px 14px; font-size: 0.78rem; }
+    body.comfort { font-size: 112%; }
+    body.comfort .section { padding: 56px 0; }
 }

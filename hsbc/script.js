@@ -196,3 +196,20 @@ function togFaq(el){
         el.setAttribute('aria-expanded','true');
     }
 }
+
+/* ---- Comfort Reading Toggle ---- */
+function toggleComfort(){
+    const body=document.body, btn=$('comfortToggle');
+    const on=body.classList.toggle('comfort');
+    btn.setAttribute('aria-pressed', on);
+    try{ localStorage.setItem('hsbc-comfort', on?'1':'0'); }catch(e){}
+}
+(function restoreComfort(){
+    try{
+        if(localStorage.getItem('hsbc-comfort')==='1'){
+            document.body.classList.add('comfort');
+            var btn=document.getElementById('comfortToggle');
+            if(btn) btn.setAttribute('aria-pressed','true');
+        }
+    }catch(e){}
+})();
