@@ -126,7 +126,7 @@ input:-webkit-autofill:focus {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
-    color: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.12);
 }
 .bg-routes svg {
     width: 100%;
