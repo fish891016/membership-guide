@@ -35,11 +35,16 @@ document.addEventListener('keydown', function(e){
     }
 });
 
+/* ---- Reduced motion check ---- */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* ---- Hero Amount Count-Up ---- */
 (function heroCountUp(){
     var el=document.querySelector('.hero-amount');
     if(!el) return;
-    var target=8888, dur=1800, prefix='NT$';
+    var target=8888, prefix='NT$';
+    if(prefersReducedMotion){ el.textContent=prefix+target.toLocaleString('zh-TW'); return; }
+    var dur=1800;
     el.textContent=prefix+'0';
     var t0=null;
     function step(now){
@@ -83,6 +88,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 function animNum(el,target,dur){
     const start=parseInt(el.textContent.replace(/,/g,''))||0;
     if(start===target) return;
+    if(prefersReducedMotion){ el.textContent=fmt(target); return; }
     const t0=performance.now();
     function step(now){
         const p=Math.min((now-t0)/dur,1);

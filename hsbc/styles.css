@@ -797,11 +797,24 @@ input:-webkit-autofill:focus {
 /* ============================================
    COMPETITOR TABLE
    ============================================ */
+.comp-scroll-hint {
+    position: relative;
+}
+.comp-scroll-hint::after {
+    content: '← 滑動查看 →';
+    display: none;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-3);
+    padding: 8px 0 0;
+}
+@media (max-width: 768px) {
+    .comp-scroll-hint::after { display: block; }
+}
 .comp-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: var(--r);
-    position: relative;
 }
 .comp-table {
     width: 100%;
@@ -1229,8 +1242,8 @@ footer p { font-size: 0.82rem; color: var(--text-3); }
    ============================================ */
 .comfort-toggle {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    right: max(24px, env(safe-area-inset-right));
     display: flex;
     align-items: center;
     gap: 6px;
@@ -1243,10 +1256,13 @@ footer p { font-size: 0.82rem; color: var(--text-3); }
     font-family: inherit;
     cursor: pointer;
     z-index: 999;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.3s;
     touch-action: manipulation;
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    bottom: max(24px, env(safe-area-inset-bottom));
+}
+/* Hide comfort toggle when iOS keyboard is open (viewport shrinks) */
+@media (max-height: 500px) {
+    .comfort-toggle { opacity: 0; pointer-events: none; }
 }
 .comfort-toggle:hover {
     background: rgba(255,255,255,0.08);
