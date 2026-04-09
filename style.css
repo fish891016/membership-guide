@@ -2791,7 +2791,7 @@
 
         .calc-form-row-3 {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: calc(50% - 6px) 1fr 1fr;
             gap: 12px;
         }
 
@@ -3004,11 +3004,13 @@
             border: none;
             cursor: pointer;
             font-size: 0.9rem;
-            padding: 8px;
+            padding: 2px 4px;
             border-radius: 6px;
             transition: all 0.3s ease;
             margin-left: 5px;
             color: var(--gold);
+            vertical-align: middle;
+            line-height: 1;
         }
 
         .calc-refresh-btn:hover {
