@@ -288,7 +288,11 @@
             if (isMobileView()) {
                 const activeTab = document.querySelectorAll('.benefit-tab')[currentPanelIndex];
                 if (activeTab) {
-                    activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    const tabContainer = activeTab.closest('.benefits-tabs');
+                    if (tabContainer) {
+                        const targetLeft = activeTab.offsetLeft - (tabContainer.clientWidth / 2) + (activeTab.offsetWidth / 2);
+                        tabContainer.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                    }
                 }
             }
         }
