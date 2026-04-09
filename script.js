@@ -443,6 +443,12 @@
             });
             if (e && e.target) {
                 e.target.classList.add('active');
+                // 自動捲動讓被點擊的 tab 置中可見
+                var tabContainer = e.target.closest('.transfer-tabs');
+                if (tabContainer && tabContainer.scrollWidth > tabContainer.clientWidth) {
+                    var targetLeft = e.target.offsetLeft - (tabContainer.clientWidth / 2) + (e.target.offsetWidth / 2);
+                    tabContainer.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                }
             }
         }
 
