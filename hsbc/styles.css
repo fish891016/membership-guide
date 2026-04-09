@@ -114,6 +114,24 @@ input:-webkit-autofill:focus {
     margin: 0 auto;
 }
 
+/* ---- Background World Map ---- */
+.bg-map {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+    color: rgba(255,255,255,0.025);
+}
+.bg-map svg {
+    width: 120%;
+    max-width: 1800px;
+    height: auto;
+}
+.wrap { position: relative; z-index: 1; }
+
 /* ---- Scroll Reveal ---- */
 .reveal {
     opacity: 0;
