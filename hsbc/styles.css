@@ -116,8 +116,8 @@ input:-webkit-autofill:focus {
     margin: 0 auto;
 }
 
-/* ---- Background World Map ---- */
-.bg-map {
+/* ---- Background Flight Routes ---- */
+.bg-routes {
     position: fixed;
     inset: 0;
     display: flex;
@@ -126,11 +126,11 @@ input:-webkit-autofill:focus {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
-    color: rgba(255,255,255,0.025);
+    color: rgba(255,255,255,0.04);
 }
-.bg-map svg {
-    width: 120%;
-    max-width: 1800px;
+.bg-routes svg {
+    width: 100%;
+    max-width: 1400px;
     height: auto;
 }
 .wrap { position: relative; z-index: 1; }
