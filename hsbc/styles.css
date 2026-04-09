@@ -31,6 +31,7 @@ html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
 }
 body {
     font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -40,6 +41,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    overflow-x: clip;
     min-height: 100vh;
     min-height: 100dvh;
     min-height: -webkit-fill-available;
@@ -123,6 +125,7 @@ input:-webkit-autofill:focus {
     justify-content: center;
     pointer-events: none;
     z-index: 0;
+    overflow: hidden;
     color: rgba(255,255,255,0.025);
 }
 .bg-map svg {
@@ -323,9 +326,8 @@ input:-webkit-autofill:focus {
 .stage-calc::before {
     content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
+    left: -36px;
+    right: -36px;
     top: 0;
     bottom: 0;
     background: rgba(255,255,255,0.01);
