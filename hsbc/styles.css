@@ -172,10 +172,21 @@ input:-webkit-autofill:focus {
 .hero-amount {
     font-size: 5rem;
     font-weight: 900;
-    color: var(--gold);
     letter-spacing: -3px;
     line-height: 1;
     margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 40%, #fff 55%, var(--gold-light) 70%, var(--gold) 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: heroAmountShine 4s ease-in-out infinite;
+}
+@keyframes heroAmountShine {
+    0% { background-position: 100% 50%; }
+    50% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 .hero-desc {
     font-size: 1.05rem;
@@ -1247,29 +1258,75 @@ footer p { font-size: 0.82rem; color: var(--text-3); }
     color: var(--gold);
 }
 
-/* Comfort mode: scale up text, increase spacing */
+/* Comfort mode: significantly larger text for elderly users */
 body.comfort {
-    font-size: 118%;
-    line-height: 2;
+    font-size: 135%;
+    line-height: 2.1;
+    letter-spacing: 0.3px;
 }
+body.comfort .hero h1 { font-size: 3.4rem; }
+body.comfort .hero-amount { font-size: 5.6rem; }
+body.comfort .hero-desc { font-size: 1.2rem; }
+body.comfort .hero-trust { font-size: 0.95rem; }
+body.comfort .hero-meta { font-size: 0.95rem; }
 body.comfort .section { padding: 96px 0; }
-body.comfort .section-desc { margin-bottom: 56px; }
-body.comfort .fq-q { min-height: 60px; font-size: 1.05rem; }
-body.comfort .fq-a-in { font-size: 1.02rem; line-height: 2.1; }
-body.comfort .acc-hd { min-height: 60px; }
-body.comfort .acc-hd h3 { font-size: 1.02rem; }
-body.comfort .cmp-list li { font-size: 1rem; padding: 10px 0; }
-body.comfort .bk-label { font-size: 1rem; }
-body.comfort .bk-cond { font-size: 0.9rem; }
-body.comfort .roi-l { font-size: 0.9rem; }
+body.comfort .section-title { font-size: 1.8rem; }
+body.comfort .section-desc { font-size: 1.1rem; margin-bottom: 56px; }
+body.comfort .section-label { font-size: 0.88rem; }
+body.comfort .proof-val { font-size: 1.1rem; }
+body.comfort .proof-label { font-size: 0.92rem; }
+body.comfort .fq-q { min-height: 64px; font-size: 1.1rem; }
+body.comfort .fq-a-in { font-size: 1.1rem; line-height: 2.2; }
+body.comfort .acc-hd { min-height: 64px; }
+body.comfort .acc-hd h3 { font-size: 1.1rem; }
+body.comfort .cmp-list li { font-size: 1.1rem; padding: 10px 0; }
+body.comfort .cmp-card h3 { font-size: 1.2rem; }
+body.comfort .bk-label { font-size: 1.08rem; }
+body.comfort .bk-cond { font-size: 0.95rem; }
+body.comfort .bk-val { font-size: 1.08rem; }
+body.comfort .roi-l { font-size: 0.95rem; }
+body.comfort .roi-v { font-size: 1.6rem; }
+body.comfort .res-hero .lbl { font-size: 0.95rem; }
+body.comfort .res-hero .unit { font-size: 1.05rem; }
+body.comfort .res-hero .cash-tag { font-size: 1.05rem; }
 body.comfort .crd-info { padding: 24px 20px; }
-body.comfort .crd-name { font-size: 1.1rem; }
-body.comfort .crd-fee { font-size: 0.95rem; }
-body.comfort .crd-rate { font-size: 0.92rem; }
-body.comfort .ptr { font-size: 0.95rem; padding: 14px 16px; }
-body.comfort .disc { font-size: 0.9rem; }
-body.comfort .quiz-q { font-size: 1.2rem; }
-body.comfort .quiz-opt .lbl { font-size: 1.02rem; }
+body.comfort .crd-name { font-size: 1.2rem; }
+body.comfort .crd-fee { font-size: 1rem; }
+body.comfort .crd-rate { font-size: 1rem; }
+body.comfort .crd-perks { font-size: 0.95rem; }
+body.comfort .topt .t-lbl { font-size: 1.15rem; }
+body.comfort .topt .t-sub { font-size: 1rem; }
+body.comfort .topt .t-val { font-size: 1rem; }
+body.comfort .inp-grp label { font-size: 1.05rem; }
+body.comfort .inp-wrap input { font-size: 1.15rem; }
+body.comfort .chk-row label { font-size: 1.05rem; }
+body.comfort .chk-bonus { font-size: 1rem; }
+body.comfort .ptr { font-size: 1.05rem; padding: 14px 16px; }
+body.comfort .pe { font-size: 0.88rem; }
+body.comfort .ptr-note { font-size: 0.95rem; }
+body.comfort .d-nm { font-size: 1.08rem; }
+body.comfort .d-mi { font-size: 0.92rem; }
+body.comfort .d-st { font-size: 0.92rem; }
+body.comfort .disc { font-size: 0.95rem; }
+body.comfort footer p { font-size: 0.92rem; }
+body.comfort .quiz-q { font-size: 1.3rem; }
+body.comfort .quiz-opt .lbl { font-size: 1.1rem; }
+body.comfort .quiz-opt .sub { font-size: 0.95rem; }
+body.comfort .ct-t { font-size: 1.8rem; }
+body.comfort .ct-s { font-size: 1.05rem; }
+body.comfort .cta-a { font-size: 1.08rem; padding: 18px 44px; }
+body.comfort .cta-dl { font-size: 0.95rem; }
+body.comfort .cta-countdown { font-size: 0.92rem; }
+body.comfort .btn-cta { font-size: 1.1rem; padding: 18px 52px; }
+body.comfort .value-prop .pre { font-size: 1.08rem; }
+body.comfort .value-prop .big { font-size: 2.8rem; }
+body.comfort .value-chips span { font-size: 1rem; }
+body.comfort .comp-table th, body.comfort .comp-table td { font-size: 1rem; padding: 16px 20px; }
+body.comfort .stp .st { font-size: 1rem; }
+body.comfort .stp .sd { font-size: 0.92rem; }
+body.comfort .dtl .dl { font-size: 0.92rem; }
+body.comfort .dtl .dv { font-size: 1.02rem; }
+body.comfort .strat-row { gap: 18px; }
 
 /* ============================================
    SUBTLE VISUAL EFFECTS
@@ -1321,9 +1378,18 @@ body.comfort .quiz-opt .lbl { font-size: 1.02rem; }
     body { min-height: -webkit-fill-available; }
 }
 
-/* Comfort toggle mobile position */
+/* Comfort toggle responsive */
+@media (max-width: 768px) {
+    body.comfort .hero h1 { font-size: 2.6rem; }
+    body.comfort .hero-amount { font-size: 4.2rem; }
+    body.comfort .section-title { font-size: 1.5rem; }
+}
 @media (max-width: 480px) {
     .comfort-toggle { bottom: max(16px, env(safe-area-inset-bottom)); right: 16px; padding: 8px 14px; font-size: 0.78rem; }
-    body.comfort { font-size: 112%; }
+    body.comfort { font-size: 125%; }
+    body.comfort .hero h1 { font-size: 2.1rem; }
+    body.comfort .hero-amount { font-size: 3.4rem; }
     body.comfort .section { padding: 56px 0; }
+    body.comfort .section-title { font-size: 1.35rem; }
+    body.comfort .value-prop .big { font-size: 2rem; }
 }

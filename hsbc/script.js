@@ -35,6 +35,24 @@ document.addEventListener('keydown', function(e){
     }
 });
 
+/* ---- Hero Amount Count-Up ---- */
+(function heroCountUp(){
+    var el=document.querySelector('.hero-amount');
+    if(!el) return;
+    var target=8888, dur=1800, prefix='NT$';
+    el.textContent=prefix+'0';
+    var t0=null;
+    function step(now){
+        if(!t0) t0=now;
+        var p=Math.min((now-t0)/dur,1);
+        var ease=1-Math.pow(1-p,3);
+        var v=Math.round(target*ease);
+        el.textContent=prefix+v.toLocaleString('zh-TW');
+        if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+})();
+
 /* ---- Scroll Reveal ---- */
 const revealObs = new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
