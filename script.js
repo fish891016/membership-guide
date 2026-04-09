@@ -110,7 +110,11 @@
         }
 
         // ── Comfort Reading Mode (舒適閱讀模式) ──
+        var _comfortTransitioning = false;
         function toggleComfortMode() {
+            if (_comfortTransitioning) return;
+            _comfortTransitioning = true;
+
             var html = document.documentElement;
             var toggle = document.getElementById('comfortToggle');
             var isActive = html.classList.contains('comfort-mode');
@@ -130,6 +134,7 @@
 
                 setTimeout(function() {
                     html.classList.remove('comfort-transitioning');
+                    _comfortTransitioning = false;
                 }, 150);
             }, 150);
         }
@@ -144,7 +149,9 @@
         })();
 
         function createParticles() {
+            if (document.documentElement.classList.contains('comfort-mode')) return;
             const container = document.getElementById('particles');
+            if (!container) return;
             for (let i = 0; i < 30; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -157,13 +164,15 @@
         createParticles();
 
         window.addEventListener('load', () => {
-            setTimeout(() => {
+            const minDelay = new Promise(r => setTimeout(r, 800));
+            const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+            Promise.all([minDelay, fontsReady]).then(() => {
                 document.getElementById('loader').classList.add('hidden');
                 document.getElementById('mainContent').classList.add('visible');
                 setTimeout(() => {
                     document.getElementById('disclaimerOverlay').classList.add('show');
                 }, 300);
-            }, 800);
+            });
         });
 
         // 統一的 scroll 處理器（header 縮放 + hero parallax + back-to-top）
@@ -388,15 +397,33 @@
             item.classList.toggle('open');
         }
 
-        // 複製代碼
+        // 複製代碼（含降級方案）
         function copyCode(code) {
-            navigator.clipboard.writeText(code).then(() => {
+            function showCopyToast() {
                 const toast = document.getElementById('copyToast');
                 if (toast) {
                     toast.classList.add('show');
                     setTimeout(() => { toast.classList.remove('show'); }, 2500);
                 }
-            }).catch(() => {});
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(code).then(showCopyToast).catch(function() {
+                    fallbackCopy(code);
+                });
+            } else {
+                fallbackCopy(code);
+            }
+
+            function fallbackCopy(text) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); showCopyToast(); } catch(e) {}
+                document.body.removeChild(ta);
+            }
         }
 
         // 機場接送表格切換
@@ -513,7 +540,10 @@
             document.querySelector('.calc-hotel-bar-info .hotel-name').textContent = selectedHotel.name;
             document.querySelector('.calc-hotel-bar-meta .promo-title').textContent = selectedHotel.promoTitle;
             document.querySelector('.calc-hotel-bar-meta .calc-price-label').textContent = selectedHotel.label;
-            document.querySelector('.calc-hotel-bar-price .calc-price-value').innerHTML = '<span>NT$</span> ' + selectedHotel.price.toLocaleString();
+            var priceEl = document.querySelector('.calc-hotel-bar-price .calc-price-value');
+            priceEl.textContent = '';
+            var ntSpan = document.createElement('span'); ntSpan.textContent = 'NT$'; priceEl.appendChild(ntSpan);
+            priceEl.appendChild(document.createTextNode(' ' + selectedHotel.price.toLocaleString()));
             document.querySelector('.calc-hotel-bar-price .calc-price-note').textContent = selectedHotel.note;
             
             if (!selectedHotel.customInputMode) {
@@ -533,14 +563,20 @@
             const tierItems = document.querySelectorAll('.calc-tier-item');
             if (tierItems[0]) {
                 const diamondBadge = tierItems[0].querySelector('.calc-tier-badge');
-                tierItems[0].querySelector('.calc-tier-points').innerHTML = selectedHotel.tiers.diamond.promo.toLocaleString() + ' <span>點</span>';
+                const dp = tierItems[0].querySelector('.calc-tier-points');
+                dp.textContent = '';
+                dp.appendChild(document.createTextNode(selectedHotel.tiers.diamond.promo.toLocaleString() + ' '));
+                var dpSpan = document.createElement('span'); dpSpan.textContent = '點'; dp.appendChild(dpSpan);
                 diamondBadge.textContent = selectedHotel.tiers.diamond.label
                     ? '環哩匯鑽石（' + selectedHotel.tiers.diamond.label + '）'
                     : '環哩匯鑽石貴賓以上';
             }
             if (tierItems[1]) {
                 const otherBadge = tierItems[1].querySelector('.calc-tier-badge');
-                tierItems[1].querySelector('.calc-tier-points').innerHTML = selectedHotel.tiers.other.promo.toLocaleString() + ' <span>點</span>';
+                const op = tierItems[1].querySelector('.calc-tier-points');
+                op.textContent = '';
+                op.appendChild(document.createTextNode(selectedHotel.tiers.other.promo.toLocaleString() + ' '));
+                var opSpan = document.createElement('span'); opSpan.textContent = '點'; op.appendChild(opSpan);
                 otherBadge.textContent = selectedHotel.tiers.other.label
                     ? '環哩匯其他會員（' + selectedHotel.tiers.other.label + '）'
                     : '環哩匯其他會員';
@@ -551,7 +587,12 @@
             
             const benefitsList = document.querySelector('#panel-calculator .calc-benefits-list ul');
             if (benefitsList) {
-                benefitsList.innerHTML = selectedHotel.benefits.map(b => '<li>' + b + '</li>').join('');
+                benefitsList.textContent = '';
+                selectedHotel.benefits.forEach(function(b) {
+                    var li = document.createElement('li');
+                    li.textContent = b;
+                    benefitsList.appendChild(li);
+                });
             }
             
             calculateCashback();
@@ -569,6 +610,7 @@
             if (refreshBtn) refreshBtn.classList.add('spinning');
             
             // 第二個 API 釘在特定版本以防供應鏈攻擊。需要更新時可至 https://github.com/fawazahmed0/exchange-api 查看最新日期版本號。
+            // ⚠️ 版本日期 @2026.4.1 — 若超過 6 個月未更新，可能回傳 404，此時 fallback 生效使用預設值。
             const apis = [
                 {
                     name: 'Open ExchangeRate API',
@@ -764,16 +806,8 @@
                     showTooltip(this);
                 }
             });
-
-            tooltip.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (activeTooltip === this && tooltipBox.classList.contains('show')) {
-                    hideTooltip();
-                } else {
-                    showTooltip(this);
-                }
-            }, { passive: false });
+            // 觸控裝置也會觸發 click，不需要額外的 touchstart handler
+            // 避免 { passive: false } 阻擋捲動行為
         });
 
         document.addEventListener('click', function(e) {
@@ -786,4 +820,4 @@
             if (!e.target.classList.contains('info-tooltip') && activeTooltip) {
                 hideTooltip();
             }
-        });
+        }, { passive: true });

@@ -60,7 +60,7 @@
             <h2 class="disclaimer-title" id="disclaimerTitle">使用前請閱讀</h2>
             <div class="disclaimer-content" id="disclaimerDesc">
                 <p>本網站為<strong>哩民自行整理之非官方工具</strong>，僅供參考使用。</p>
-                <p style="margin-top: 12px;">所有會員權益、規範及資訊，請以<strong>官方會員手冊</strong>為準。</p>
+                <p class="mt-12">所有會員權益、規範及資訊，請以<strong>官方會員手冊</strong>為準。</p>
             </div>
             <a href="https://www.ftctw.org/vipkit2024go" target="_blank" rel="noopener noreferrer" class="disclaimer-download">
                 <span aria-hidden="true">📖</span>
@@ -123,7 +123,7 @@
             <p class="hero-desc">
                 Discover Your Exclusive Journey · Unlock Unparalleled Global Experiences
             </p>
-            <div class="hero-scroll" onclick="document.getElementById('tiers').scrollIntoView({behavior: 'smooth'})">
+            <div class="hero-scroll" onclick="scrollToSection('tiers')">
                 <span>EXPLORE</span>
                 <div class="scroll-line"></div>
                     </div>
@@ -310,7 +310,7 @@
                                 <td></td><td></td><td></td><td></td><td></td>
                             </tr>
                             <tr>
-                                <td>年度免費套房 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td>年度免費套房 <span class="choice-star">★</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td class="value-text">至多 1 次</td>
@@ -318,7 +318,7 @@
                                 <td class="value-text">指定總套 8 晚</td>
                             </tr>
                             <tr>
-                                <td>國內機場接送 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td>國內機場接送 <span class="choice-star">★</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td><span class="cross-icon">—</span></td>
@@ -326,7 +326,7 @@
                                 <td class="value-text highlight-gold">不限次</td>
                             </tr>
                             <tr>
-                                <td>寰宇尊榮通關 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td>寰宇尊榮通關 <span class="choice-star">★</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td class="value-text">至多 1 人次</td>
@@ -334,7 +334,7 @@
                                 <td class="value-text highlight-gold">不限次</td>
                             </tr>
                             <tr>
-                                <td>海外機場接送 <span style="color: var(--gold); font-size: 0.7rem;">★</span></td>
+                                <td>海外機場接送 <span class="choice-star">★</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td><span class="cross-icon">—</span></td>
                                 <td><span class="cross-icon">—</span></td>
@@ -433,7 +433,7 @@
                             <span>📅 訂房期間：2026/02/13 - 02/28</span>
                             <span>🛏️ 入住期間：2026/02/13 - 05/31</span>
                         </div>
-                        <div class="promo-plan-item highlight" style="margin-bottom: 20px;">
+                        <div class="promo-plan-item highlight mb-20">
                             <div class="plan-name">Junior Suite King Harbor View Room</div>
                             <div class="plan-points">港景套房／城景套房</div>
                             <div class="plan-price">NT$23,888（平假日同價）</div>
@@ -451,7 +451,7 @@
                                 <span class="tier-value">68,888 點</span>
                             </div>
                         </div>
-                        <div class="calc-benefits-list" style="margin-top: 20px;">
+                        <div class="calc-benefits-list mt-20">
                             <h4>尊榮專屬禮遇</h4>
                             <ul>
                                 <li>贈送雙人早餐</li>
@@ -486,9 +486,9 @@
                                 <span class="tier-original">原 48,888 點</span>
                             </div>
                         </div>
-                        <div class="promo-note" style="margin-top: 15px; padding: 12px; background: rgba(74, 222, 128, 0.05); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 8px; color: #4ade80;">
+                        <div class="promo-note promo-extra-note">
                             ✨ 每晚額外加贈 888 點（2/2 - 5/10）<br>
-                            <small style="font-size: 0.75rem; opacity: 0.8; color: var(--text-dim);">※ 僅限 NT$3,599 方案（非上述套房方案）</small>
+                            <small>※ 僅限 NT$3,599 方案（非上述套房方案）</small>
                         </div>
                     </div>
 
@@ -636,7 +636,7 @@
                         </div>
                         <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
                         <div class="hotel-detail">
-                            <p style="color: var(--gold); font-size: 0.82rem; margin-bottom: 8px;">全台獨家「週末及假日不加價」</p>
+                            <p class="hotel-detail-highlight">全台獨家「週末及假日不加價」</p>
                             <ul>
                                 <li>鑽石：單臥別墅 NT$14,888/晚 贈雙人早餐</li>
                                 <li>鑽石：雙臥別墅 NT$23,888/晚 贈四人早餐</li>
@@ -721,13 +721,13 @@
                         </div>
                         <button class="hotel-expand-btn" onclick="toggleHotelDetail(this)">查看方案</button>
                         <div class="hotel-detail">
-                            <p style="color: var(--gold); font-size: 0.82rem; margin-bottom: 6px;">基本房型（找黑龍安排）</p>
+                            <p class="hotel-detail-highlight">基本房型（找黑龍安排）</p>
                             <ul>
                                 <li>鑽石：保證升等至指定套房</li>
                                 <li>行政白金以上：保證升級一階</li>
                                 <li>雙人早餐 + 早進晚退 + 至高 NT$3,000 消費額</li>
                             </ul>
-                            <p style="color: var(--gold); font-size: 0.82rem; margin: 12px 0 6px;">套房方案（官網 C1627）</p>
+                            <p class="hotel-detail-highlight-spaced">套房方案（官網 C1627）</p>
                             <ul>
                                 <li>港景／城景套房 NT$23,888 不限平假日</li>
                                 <li>鑽石贈 88,888 點 / 非鑽石贈 68,888 點</li>
@@ -834,8 +834,8 @@
                                             <span class="code-value">C1627</span>
                                             <span class="code-copy">點擊複製</span>
                                         </div>
-                                        <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px;">
-                                            ※ 南港六福萬怡使用代碼 <strong style="color: var(--gold);">C1627</strong>
+                                        <p class="code-hint">
+                                            ※ 南港六福萬怡使用代碼 <strong>C1627</strong>
                                         </p>
                                     </div>
                                     <div class="tutorial-step">
@@ -1483,8 +1483,8 @@
                         <thead>
                             <tr>
                                 <th>出發地區</th>
-                                <th>續會<br><small style="font-weight:400;opacity:0.7;">接送次數 + 通關人次</small></th>
-                                <th>新辦<br><small style="font-weight:400;opacity:0.7;">接送次數 + 通關人次</small></th>
+                                <th>續會<br><small class="th-sub">接送次數 + 通關人次</small></th>
+                                <th>新辦<br><small class="th-sub">接送次數 + 通關人次</small></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1661,7 +1661,7 @@
 
                     <div class="footer-col">
                         <h4>理事長</h4>
-                        <a href="https://www.facebook.com/fabianselect.club/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                        <a href="https://www.facebook.com/fabianselect.club/" target="_blank" rel="noopener noreferrer">
                             <div class="footer-founder">
                                 <img class="founder-avatar" src="Fabian_ico.jpg" alt="Fabian Lee">
                                 <div class="founder-info">
@@ -1670,7 +1670,7 @@
                                 </div>
                             </div>
                         </a>
-                        <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 15px; line-height: 1.7;">
+                        <p class="founder-role">
                             臺灣哩程研究社理事長<br>
                             國際航空旅遊產業顧問
                         </p>

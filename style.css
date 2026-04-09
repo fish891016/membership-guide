@@ -28,7 +28,6 @@
 
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
         body {
@@ -1851,7 +1850,7 @@
 
         .transfer-table {
             width: 100%;
-            min-width: 500px;
+            min-width: 420px;
             border-collapse: collapse;
         }
 
@@ -2246,7 +2245,7 @@
             position: fixed;
             bottom: 40px;
             left: 50%;
-            transform: translateX(-50%) translateY(100px);
+            transform: translateX(-50%) translateY(200px);
             padding: 15px 35px;
             background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: var(--black);
@@ -2254,11 +2253,19 @@
             letter-spacing: 2px;
             border-radius: 50px;
             z-index: 9999;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .copy-toast.show {
             transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
 
         .back-to-top {
@@ -3190,7 +3197,7 @@
             }
 
             .hero-subtitle {
-            font-size: 1rem;
+                font-size: 1rem;
                 letter-spacing: 2px;
             }
 
@@ -3720,7 +3727,7 @@
 
             .transfer-tab {
                 padding: 10px 14px;
-                font-size: 0.7rem;
+                font-size: 0.78rem;
                 white-space: nowrap;
             }
 
@@ -4150,6 +4157,10 @@
                 font-size: 1.3rem;
             }
 
+            .hotel-notice-grid {
+                grid-template-columns: 1fr;
+            }
+
             .footer-grid {
                 padding: 0 16px;
                 gap: 35px;
@@ -4493,6 +4504,28 @@
         html.comfort-mode .benefit-tab {
             font-size: 0.95rem;
             padding: 16px 34px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        html.comfort-mode .transfer-tabs {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        html.comfort-mode .transfer-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        html.comfort-mode .comparison-wrapper {
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        html.comfort-mode .comparison-wrapper::-webkit-scrollbar {
+            display: none;
         }
 
         /* ── Calculator / Form ── */
@@ -4633,6 +4666,10 @@
                 padding: 0 24px;
             }
 
+            html.comfort-mode .transfer-tabs {
+                justify-content: flex-start;
+            }
+
             html.comfort-mode .section-title {
                 font-size: 1.7rem;
             }
@@ -4664,28 +4701,6 @@
             html.comfort-mode .transfer-table td {
                 padding: 18px 16px;
                 font-size: 0.9rem;
-            }
-
-            html.comfort-mode .benefit-tab {
-                padding: 14px 22px;
-                font-size: 0.88rem;
-            }
-
-            html.comfort-mode .transfer-tabs {
-                overflow-x: auto;
-                justify-content: flex-start;
-                scrollbar-width: none;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            html.comfort-mode .transfer-tabs::-webkit-scrollbar {
-                display: none;
-            }
-
-            html.comfort-mode .transfer-tab {
-                padding: 14px 22px;
-                font-size: 0.88rem;
-                flex-shrink: 0;
             }
 
             html.comfort-mode .hotel-card {
@@ -4726,6 +4741,27 @@
             }
         }
 
+        /* ── Reduced motion + comfort mode combined ── */
+        @media (prefers-reduced-motion: reduce) {
+            html.comfort-mode .fade-in {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1;
+                transform: none;
+            }
+
+            html.comfort-mode .tier-nav-card:hover,
+            html.comfort-mode .hotel-card:hover,
+            html.comfort-mode .promo-card:hover,
+            html.comfort-mode .code-box:hover {
+                transform: none;
+            }
+
+            html.comfort-mode .comfort-transitioning * {
+                transition: none !important;
+            }
+        }
+
         /* ── Mobile comfort overrides (480px) ── */
         @media (max-width: 480px) {
             html.comfort-mode .container {
@@ -4750,6 +4786,69 @@
                 font-size: 17px;
             }
 
+        }
+
+        /* ══════════════════════════════════════════════
+           Utility Classes (extracted from inline styles)
+           ══════════════════════════════════════════════ */
+
+        .mt-12 { margin-top: 12px; }
+        .mt-15 { margin-top: 15px; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+
+        .th-sub {
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        .choice-star {
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        .hotel-detail-highlight {
+            color: var(--gold);
+            font-size: 0.82rem;
+            margin-bottom: 8px;
+        }
+
+        .hotel-detail-highlight-spaced {
+            color: var(--gold);
+            font-size: 0.82rem;
+            margin: 12px 0 6px;
+        }
+
+        .code-hint {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-top: 10px;
+        }
+
+        .code-hint strong {
+            color: var(--gold);
+        }
+
+        .founder-role {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+
+        .promo-extra-note {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(74, 222, 128, 0.05);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 8px;
+            color: #4ade80;
+        }
+
+        .promo-extra-note small {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            color: var(--text-dim);
         }
 
         ::-webkit-scrollbar {
