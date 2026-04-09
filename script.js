@@ -172,6 +172,7 @@
             const header = document.getElementById('header');
             const hero = document.querySelector('.hero');
             let backToTop = null; // 延遲查詢，因為可能還沒掛上 DOM
+            let comfortToggle = null;
             let ticking = false;
             let lastScrolled = false;
             let lastBackToTopShown = false;
@@ -193,12 +194,14 @@
                     hero.style.setProperty('--dragon-shift', shift + 'px');
                 }
 
-                // Back-to-top 按鈕顯示
+                // Back-to-top + Comfort toggle 按鈕顯示（同步出現）
                 if (!backToTop) backToTop = document.getElementById('backToTop');
+                if (!comfortToggle) comfortToggle = document.getElementById('comfortToggle');
                 if (backToTop) {
                     const shouldShow = scrollY > 500;
                     if (shouldShow !== lastBackToTopShown) {
                         backToTop.classList.toggle('show', shouldShow);
+                        if (comfortToggle) comfortToggle.classList.toggle('show', shouldShow);
                         lastBackToTopShown = shouldShow;
                     }
                 }
