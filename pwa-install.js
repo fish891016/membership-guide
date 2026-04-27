@@ -15,6 +15,14 @@
 (function () {
     'use strict';
 
+    // ───────────────────────────────────────────────────────────────────────
+    // 總開關：是否對訪客顯示「安裝 App」提示 banner / iOS 引導 modal
+    //   false = 完全隱藏（檔案、樣式、監聽器仍保留，方便日後即時開回）
+    //   true  = 啟用（依 standalone / 冷卻 / 平台判斷顯示）
+    // 想重新啟用：改成 true 即可，無需動其他檔案
+    // ───────────────────────────────────────────────────────────────────────
+    var PROMPT_ENABLED = false;
+
     var STORAGE_KEY = 'tdc_pwa_install_dismissed_at';
     var COOLDOWN_MS = 14 * 24 * 60 * 60 * 1000;
 
@@ -172,6 +180,7 @@
     }
 
     function init() {
+        if (!PROMPT_ENABLED) return;
         if (!canShow()) return;
         if (isInAppBrowser()) return;
 
