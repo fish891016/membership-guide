@@ -6,13 +6,14 @@
  *   3. Avoid aggressive caching so future site updates deploy cleanly.
  */
 
-const CACHE_VERSION = 'tdc-shell-v1';
+const CACHE_VERSION = 'tdc-shell-v2';
 const APP_SHELL = [
   '/app.html',
   '/manifest.webmanifest',
   '/icon-192.png',
   '/icon-512.png',
   '/icon-maskable-512.png',
+  '/apple-touch-icon.png',
   '/TDC.ico'
 ];
 
