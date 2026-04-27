@@ -1713,50 +1713,13 @@
     <script src="script.js?v=20260409"></script>
     <script src="/pwa-install.js" defer></script>
 
-    <!-- PWA: Home button (visible only in standalone) + Service Worker registration -->
-    <a id="pwaHomeBtn" href="/app.html" aria-label="回到 APP 主選單" hidden>
-        <span aria-hidden="true">⌂</span>
-    </a>
-    <style>
-        #pwaHomeBtn {
-            display: none;
-            position: fixed;
-            right: max(16px, env(safe-area-inset-right));
-            bottom: max(16px, env(safe-area-inset-bottom));
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: rgba(10, 10, 10, 0.85);
-            color: #C9A962;
-            border: 1px solid rgba(201, 169, 98, 0.55);
-            text-decoration: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            line-height: 1;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-        }
-        @media all and (display-mode: standalone) {
-            #pwaHomeBtn { display: inline-flex; }
-        }
-    </style>
+    <!-- PWA Service Worker registration -->
     <script>
-        (function () {
-            try {
-                if (window.navigator.standalone === true) {
-                    var btn = document.getElementById('pwaHomeBtn');
-                    if (btn) btn.style.display = 'inline-flex';
-                }
-            } catch (e) {}
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function () {
-                    navigator.serviceWorker.register('/sw.js').catch(function () {});
-                });
-            }
-        })();
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').catch(function () {});
+            });
+        }
     </script>
 </body>
 </html>
