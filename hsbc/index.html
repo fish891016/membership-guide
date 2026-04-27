@@ -10,10 +10,21 @@
     <meta property="og:type" content="website">
     <title>滙豐旅人卡｜環哩匯通路獨家方案｜哩程試算器</title>
     <link rel="icon" href="TDC.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/TDC.ico">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="環哩匯">
+    <meta name="application-name" content="環哩匯">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/pwa-install.css">
     <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
@@ -420,5 +431,52 @@
 </button>
 
 <script src="script.js"></script>
+<script src="/pwa-install.js" defer></script>
+
+<!-- PWA: Home button (visible only in standalone) + Service Worker registration -->
+<a id="pwaHomeBtn" href="/app.html" aria-label="回到 APP 主選單" hidden>
+    <span aria-hidden="true">⌂</span>
+</a>
+<style>
+    #pwaHomeBtn {
+        display: none;
+        position: fixed;
+        right: max(16px, env(safe-area-inset-right));
+        bottom: max(16px, env(safe-area-inset-bottom));
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(11, 11, 13, 0.85);
+        color: #C9A962;
+        border: 1px solid rgba(201, 169, 98, 0.55);
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        line-height: 1;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    @media all and (display-mode: standalone) {
+        #pwaHomeBtn { display: inline-flex; }
+    }
+</style>
+<script>
+    (function () {
+        try {
+            if (window.navigator.standalone === true) {
+                var btn = document.getElementById('pwaHomeBtn');
+                if (btn) btn.style.display = 'inline-flex';
+            }
+        } catch (e) {}
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').catch(function () {});
+            });
+        }
+    })();
+</script>
 </body>
 </html>

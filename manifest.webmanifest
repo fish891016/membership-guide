@@ -1,0 +1,36 @@
+{
+  "name": "THE DRAGON CIRCLE 環哩匯",
+  "short_name": "環哩匯",
+  "description": "環哩匯尊榮會員計劃 APP — 會員權益使用指南、直營飯店、機場接送、寰宇通關、匯豐特案",
+  "start_url": "/app.html",
+  "scope": "/",
+  "id": "/app.html",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "zh-TW",
+  "dir": "ltr",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
