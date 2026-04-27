@@ -6,7 +6,7 @@
  *   3. Avoid aggressive caching so future site updates deploy cleanly.
  */
 
-const CACHE_VERSION = 'tdc-shell-v3';
+const CACHE_VERSION = 'tdc-shell-v4';
 const APP_SHELL = [
   '/app.html',
   '/manifest.webmanifest',
