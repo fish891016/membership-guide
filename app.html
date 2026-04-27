@@ -26,6 +26,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- 預先抓內部選單目標頁，使第一次點擊就能秒進 -->
+    <link rel="prefetch" href="/index.html" as="document">
+    <link rel="prefetch" href="/hsbc/index.html" as="document">
+
     <script>
         (function () {
             try {
@@ -204,10 +208,16 @@
             pointer-events: none;
         }
 
-        .menu-card:active {
+        .menu-card:active,
+        .menu-card.is-pressed {
             transform: scale(0.985);
-            border-color: rgba(201, 169, 98, 0.7);
-            box-shadow: 0 6px 24px rgba(201, 169, 98, 0.15);
+            border-color: rgba(201, 169, 98, 0.85);
+            box-shadow: 0 8px 28px rgba(201, 169, 98, 0.18), 0 0 0 1px rgba(201, 169, 98, 0.4);
+            transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+        }
+        .menu-card.is-pressed::before {
+            transform: translateX(100%);
+            transition: transform 0.5s ease;
         }
 
         @media (hover: hover) {
@@ -290,10 +300,11 @@
             transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
         }
 
-        .menu-card:active .menu-card-arrow {
+        .menu-card:active .menu-card-arrow,
+        .menu-card.is-pressed .menu-card-arrow {
             background: var(--gold);
             color: var(--black);
-            transform: translateX(2px);
+            transform: translateX(3px);
         }
 
         @media (hover: hover) {
@@ -377,56 +388,67 @@
             }
         }
 
-        .menu-card.is-loading {
+        /* ===== Launcher 退場動畫：被選的卡發光放大、其他卡與裝飾淡出收回 =====
+           取代沉重的 backdrop-blur overlay；視覺更連續，使用者不再覺得「卡住」 */
+        .app.is-leaving {
             pointer-events: none;
-            opacity: 0.55;
         }
-
-        .menu-card.is-loading .menu-card-arrow {
-            border-color: rgba(201, 169, 98, 0.8);
-            color: var(--gold);
-            animation: cardArrowPulse 1s ease-in-out infinite;
-        }
-
-        @keyframes cardArrowPulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.08); opacity: 1; }
-        }
-
-        .app-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(8, 8, 8, 0.78);
-            -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
+        .app.is-leaving .brand,
+        .app.is-leaving .footer {
             opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.25s ease, visibility 0.25s ease;
+            transform: translateY(-6px);
+            transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .app.is-leaving .menu-card {
+            transition: opacity 0.24s ease,
+                        transform 0.32s cubic-bezier(0.2, 0.7, 0.3, 1),
+                        border-color 0.32s ease,
+                        box-shadow 0.32s ease;
+        }
+        .app.is-leaving .menu-card:not(.is-pressed) {
+            opacity: 0;
+            transform: translateY(8px) scale(0.97);
+        }
+        .app.is-leaving .menu-card.is-pressed {
+            transform: scale(1.015);
+            border-color: rgba(232, 213, 163, 0.95);
+            box-shadow:
+                0 14px 50px rgba(201, 169, 98, 0.4),
+                0 0 0 1px rgba(232, 213, 163, 0.8);
+            z-index: 2;
+        }
+        .app.is-leaving .menu-card.is-pressed .menu-card-arrow {
+            transform: translateX(8px) scale(1.06);
+            background: var(--gold);
+            color: var(--black);
         }
 
-        .app-loader.is-visible {
-            opacity: 1;
-            visibility: visible;
+        /* ===== 從 bfcache 回來時的進場動畫，避免畫面突兀回到原狀 ===== */
+        @keyframes appReturn {
+            from { opacity: 0; transform: translateY(6px) scale(0.985); }
+            to   { opacity: 1; transform: none; }
+        }
+        .app.is-entering .menu-card,
+        .app.is-entering .brand,
+        .app.is-entering .footer {
+            animation: appReturn 0.42s ease both;
         }
 
+        /* ===== 細的頂部進度條：點擊瞬間出現，給使用者「事情正在進行中」訊號 ===== */
         .app-loader-bar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             height: 2px;
-            background: rgba(201, 169, 98, 0.15);
+            background: rgba(201, 169, 98, 0.12);
             overflow: hidden;
-            z-index: 101;
+            z-index: 110;
             opacity: 0;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.18s ease;
+            pointer-events: none;
         }
 
-        .app-loader.is-visible ~ .app-loader-bar,
         .app-loader-bar.is-visible {
             opacity: 1;
         }
@@ -436,6 +458,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
+            left: -40%;
             width: 35%;
             background: linear-gradient(90deg,
                 transparent 0%,
@@ -451,73 +474,23 @@
             100% { left: 100%; }
         }
 
-        .app-loader-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            padding: 28px 36px;
-            background: linear-gradient(180deg, rgba(22, 20, 18, 0.95) 0%, rgba(12, 11, 9, 0.95) 100%);
-            border: 1px solid rgba(201, 169, 98, 0.32);
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
-            transform: translateY(8px) scale(0.98);
-            transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
-            min-width: 200px;
-        }
-
-        .app-loader.is-visible .app-loader-card {
-            transform: translateY(0) scale(1);
-        }
-
-        .app-loader-ring {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 2px solid rgba(201, 169, 98, 0.18);
-            border-top-color: var(--gold);
-            border-right-color: var(--gold-light);
-            animation: loaderSpin 0.9s linear infinite;
-        }
-
-        @keyframes loaderSpin {
-            to { transform: rotate(360deg); }
-        }
-
-        .app-loader-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 12px;
-            letter-spacing: 0.42em;
-            color: var(--gold);
-            text-transform: uppercase;
-            padding-left: 0.42em;
-        }
-
-        .app-loader-sub {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 13px;
-            color: var(--text-dim);
-            letter-spacing: 0.04em;
-            margin-top: -4px;
-            text-align: center;
-            max-width: 220px;
-            line-height: 1.5;
-        }
-
         @media (prefers-reduced-motion: reduce) {
-            .app-loader,
-            .app-loader-card,
-            .app-loader-ring,
-            .app-loader-bar::after,
-            .menu-card.is-loading .menu-card-arrow {
-                animation: none !important;
-                transition: opacity 0.2s ease !important;
+            .app.is-leaving .menu-card:not(.is-pressed),
+            .app.is-leaving .brand,
+            .app.is-leaving .footer {
+                transition: opacity 0.15s ease;
+                transform: none;
             }
-            .app-loader-ring {
-                border-top-color: var(--gold);
-                border-right-color: var(--gold);
-                border-bottom-color: rgba(201, 169, 98, 0.2);
-                border-left-color: rgba(201, 169, 98, 0.2);
+            .app.is-entering .menu-card,
+            .app.is-entering .brand,
+            .app.is-entering .footer {
+                animation: none;
+            }
+            .app-loader-bar::after {
+                animation: none;
+                left: 0;
+                width: 100%;
+                opacity: 0.6;
             }
         }
     </style>
@@ -594,68 +567,124 @@
     </div>
 
     <div class="app-loader-bar" id="appLoaderBar" aria-hidden="true"></div>
-    <div class="app-loader" id="appLoader" role="status" aria-live="polite" aria-hidden="true">
-        <div class="app-loader-card">
-            <div class="app-loader-ring" aria-hidden="true"></div>
-            <div class="app-loader-text">Loading</div>
-            <div class="app-loader-sub" id="appLoaderSub">正在前往</div>
-        </div>
-    </div>
 
     <script>
         (function () {
-            var loader = document.getElementById('appLoader');
+            'use strict';
+
+            var appEl = document.querySelector('.app');
             var loaderBar = document.getElementById('appLoaderBar');
-            var loaderSub = document.getElementById('appLoaderSub');
             var cards = document.querySelectorAll('.menu-card');
-            var hideTimer = null;
+            var leaving = false;
+            var navTimer = null;
+            var barFadeTimer = null;
 
-            function showLoader(label) {
-                if (label) loaderSub.textContent = label;
-                loader.classList.add('is-visible');
-                loader.setAttribute('aria-hidden', 'false');
-                loaderBar.classList.add('is-visible');
+            // 退場動畫時長（毫秒）— 必須與 CSS .app.is-leaving 的 transition 對齊
+            var LEAVE_DURATION = 280;
+
+            function clearAllPressed() {
+                for (var i = 0; i < cards.length; i++) {
+                    cards[i].classList.remove('is-pressed');
+                }
             }
 
-            function hideLoader() {
-                loader.classList.remove('is-visible');
-                loader.setAttribute('aria-hidden', 'true');
-                loaderBar.classList.remove('is-visible');
-                cards.forEach(function (c) { c.classList.remove('is-loading'); });
+            function showBar() {
+                if (loaderBar) loaderBar.classList.add('is-visible');
+            }
+            function hideBar() {
+                if (loaderBar) loaderBar.classList.remove('is-visible');
             }
 
-            cards.forEach(function (card) {
-                card.addEventListener('click', function (e) {
-                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+            function reset() {
+                leaving = false;
+                if (navTimer) { clearTimeout(navTimer); navTimer = null; }
+                if (barFadeTimer) { clearTimeout(barFadeTimer); barFadeTimer = null; }
+                if (appEl) {
+                    appEl.classList.remove('is-leaving');
+                }
+                clearAllPressed();
+                hideBar();
+            }
 
-                    var title = (card.querySelector('.menu-card-title') || {}).textContent || '';
-                    var isExternal = card.target === '_blank';
+            function pressCard(card) {
+                clearAllPressed();
+                card.classList.add('is-pressed');
+            }
 
-                    cards.forEach(function (c) { c.classList.remove('is-loading'); });
-                    card.classList.add('is-loading');
+            for (var i = 0; i < cards.length; i++) {
+                (function (card) {
+                    // 立即按下回饋（pointerdown 比 click 早 ~150–300ms 觸發，
+                    // 不依賴 :active 偽類，iOS 快速 tap 也保證會出現）
+                    card.addEventListener('pointerdown', function () {
+                        if (leaving) return;
+                        pressCard(card);
+                    }, { passive: true });
 
-                    showLoader('正在前往 ' + title.trim());
+                    // 滑出 / 取消：移除按下狀態（除非已經在退場中）
+                    card.addEventListener('pointerleave', function () {
+                        if (!leaving) card.classList.remove('is-pressed');
+                    });
+                    card.addEventListener('pointercancel', function () {
+                        if (!leaving) card.classList.remove('is-pressed');
+                    });
 
-                    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+                    card.addEventListener('click', function (e) {
+                        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
 
-                    if (isExternal) {
-                        hideTimer = setTimeout(hideLoader, 1600);
-                    } else {
-                        hideTimer = setTimeout(hideLoader, 20000);
-                    }
-                });
-            });
+                        var href = card.getAttribute('href');
+                        if (!href) return;
+                        var isExternal = card.target === '_blank';
 
+                        // pointerdown 沒觸發時的 fallback（鍵盤 Enter、輔助裝置）
+                        if (!card.classList.contains('is-pressed')) {
+                            pressCard(card);
+                        }
+
+                        showBar();
+
+                        if (isExternal) {
+                            // 外部連結：讓瀏覽器原生 _blank 行為繼續，
+                            // launcher 留在原處；只給短暫頂部進度條提示「有反應」
+                            if (barFadeTimer) clearTimeout(barFadeTimer);
+                            barFadeTimer = setTimeout(function () {
+                                hideBar();
+                                card.classList.remove('is-pressed');
+                            }, 1500);
+                            return;
+                        }
+
+                        // 內部連結：自己控制節奏 — 退場動畫 → 導航
+                        e.preventDefault();
+                        if (leaving) return;
+                        leaving = true;
+
+                        // 強制 reflow 後再加 .is-leaving，確保動畫一定 paint
+                        void appEl.offsetWidth;
+                        requestAnimationFrame(function () {
+                            appEl.classList.add('is-leaving');
+                        });
+
+                        navTimer = setTimeout(function () {
+                            window.location.href = href;
+                        }, LEAVE_DURATION - 20);
+                    });
+                })(cards[i]);
+            }
+
+            // 從 bfcache 回來：清除殘留並做進場動畫，避免畫面突兀
             window.addEventListener('pageshow', function (e) {
-                if (e.persisted) hideLoader();
-            });
-
-            window.addEventListener('pagehide', function () {
+                reset();
+                if (e.persisted && appEl) {
+                    appEl.classList.add('is-entering');
+                    setTimeout(function () {
+                        appEl.classList.remove('is-entering');
+                    }, 460);
+                }
             });
 
             document.addEventListener('visibilitychange', function () {
-                if (document.visibilityState === 'visible') {
-                    hideLoader();
+                if (document.visibilityState === 'visible' && !leaving) {
+                    reset();
                 }
             });
         })();

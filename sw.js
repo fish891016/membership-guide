@@ -6,9 +6,11 @@
  *   3. Avoid aggressive caching so future site updates deploy cleanly.
  */
 
-const CACHE_VERSION = 'tdc-shell-v6';
+const CACHE_VERSION = 'tdc-shell-v7';
 const APP_SHELL = [
   '/app.html',
+  '/index.html',
+  '/hsbc/index.html',
   '/manifest.webmanifest',
   '/icon-192.png',
   '/icon-512.png',
