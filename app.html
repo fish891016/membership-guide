@@ -376,6 +376,150 @@
                 transition: none;
             }
         }
+
+        .menu-card.is-loading {
+            pointer-events: none;
+            opacity: 0.55;
+        }
+
+        .menu-card.is-loading .menu-card-arrow {
+            border-color: rgba(201, 169, 98, 0.8);
+            color: var(--gold);
+            animation: cardArrowPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes cardArrowPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+
+        .app-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(8, 8, 8, 0.78);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .app-loader.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .app-loader-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(201, 169, 98, 0.15);
+            overflow: hidden;
+            z-index: 101;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .app-loader.is-visible ~ .app-loader-bar,
+        .app-loader-bar.is-visible {
+            opacity: 1;
+        }
+
+        .app-loader-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 35%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(232, 213, 163, 0.6) 30%,
+                var(--gold) 50%,
+                rgba(232, 213, 163, 0.6) 70%,
+                transparent 100%);
+            animation: loaderBarSweep 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes loaderBarSweep {
+            0%   { left: -40%; }
+            100% { left: 100%; }
+        }
+
+        .app-loader-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            padding: 28px 36px;
+            background: linear-gradient(180deg, rgba(22, 20, 18, 0.95) 0%, rgba(12, 11, 9, 0.95) 100%);
+            border: 1px solid rgba(201, 169, 98, 0.32);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+            transform: translateY(8px) scale(0.98);
+            transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+            min-width: 200px;
+        }
+
+        .app-loader.is-visible .app-loader-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .app-loader-ring {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid rgba(201, 169, 98, 0.18);
+            border-top-color: var(--gold);
+            border-right-color: var(--gold-light);
+            animation: loaderSpin 0.9s linear infinite;
+        }
+
+        @keyframes loaderSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .app-loader-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 12px;
+            letter-spacing: 0.42em;
+            color: var(--gold);
+            text-transform: uppercase;
+            padding-left: 0.42em;
+        }
+
+        .app-loader-sub {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 0.04em;
+            margin-top: -4px;
+            text-align: center;
+            max-width: 220px;
+            line-height: 1.5;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .app-loader,
+            .app-loader-card,
+            .app-loader-ring,
+            .app-loader-bar::after,
+            .menu-card.is-loading .menu-card-arrow {
+                animation: none !important;
+                transition: opacity 0.2s ease !important;
+            }
+            .app-loader-ring {
+                border-top-color: var(--gold);
+                border-right-color: var(--gold);
+                border-bottom-color: rgba(201, 169, 98, 0.2);
+                border-left-color: rgba(201, 169, 98, 0.2);
+            }
+        }
     </style>
 </head>
 <body>
@@ -449,7 +593,73 @@
         </footer>
     </div>
 
+    <div class="app-loader-bar" id="appLoaderBar" aria-hidden="true"></div>
+    <div class="app-loader" id="appLoader" role="status" aria-live="polite" aria-hidden="true">
+        <div class="app-loader-card">
+            <div class="app-loader-ring" aria-hidden="true"></div>
+            <div class="app-loader-text">Loading</div>
+            <div class="app-loader-sub" id="appLoaderSub">正在前往</div>
+        </div>
+    </div>
+
     <script>
+        (function () {
+            var loader = document.getElementById('appLoader');
+            var loaderBar = document.getElementById('appLoaderBar');
+            var loaderSub = document.getElementById('appLoaderSub');
+            var cards = document.querySelectorAll('.menu-card');
+            var hideTimer = null;
+
+            function showLoader(label) {
+                if (label) loaderSub.textContent = label;
+                loader.classList.add('is-visible');
+                loader.setAttribute('aria-hidden', 'false');
+                loaderBar.classList.add('is-visible');
+            }
+
+            function hideLoader() {
+                loader.classList.remove('is-visible');
+                loader.setAttribute('aria-hidden', 'true');
+                loaderBar.classList.remove('is-visible');
+                cards.forEach(function (c) { c.classList.remove('is-loading'); });
+            }
+
+            cards.forEach(function (card) {
+                card.addEventListener('click', function (e) {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+
+                    var title = (card.querySelector('.menu-card-title') || {}).textContent || '';
+                    var isExternal = card.target === '_blank';
+
+                    cards.forEach(function (c) { c.classList.remove('is-loading'); });
+                    card.classList.add('is-loading');
+
+                    showLoader('正在前往 ' + title.trim());
+
+                    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+
+                    if (isExternal) {
+                        hideTimer = setTimeout(hideLoader, 1600);
+                    } else {
+                        hideTimer = setTimeout(hideLoader, 20000);
+                    }
+                });
+            });
+
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) hideLoader();
+            });
+
+            window.addEventListener('pagehide', function () {
+            });
+
+            document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'visible') {
+                    hideLoader();
+                }
+            });
+        })();
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
                 navigator.serviceWorker.register('/sw.js').catch(function () {});
